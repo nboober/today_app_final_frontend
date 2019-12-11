@@ -1,17 +1,17 @@
 import React from 'react';
 import '../css/App.css';
 import {Route, Switch, Redirect} from 'react-router-dom';
-import Login from '../components/Login'
-import Profile from '../components/Profile'
-import Home from '../components/Home'
-import Register from '../components/Register'
-import NotFound from '../components/NotFound'
 import Nav from '../components/Nav'
-import OutfitShow from '../components/OutfitShow';
+import Login from '../components/Login'
+import Register from '../components/Register'
+import Profile from '../components/Profile'
 import UpdateProfile from '../components/UpdateProfile';
 import AddClothes from '../components/AddClothes';
-import UpdateClothingItem from '../components/UpdateClothingItem';
+import Home from '../components/Home'
+import OutfitShow from '../components/OutfitShow';
 import ClothesContainer from '../containers/ClothesContainer';
+import UpdateClothingItem from '../components/UpdateClothingItem';
+import NotFound from '../components/NotFound'
 
 
 class App extends React.Component{
@@ -45,36 +45,13 @@ class App extends React.Component{
   render(){
     return (
       <>
-        
+        {/* Nav Bar */}
         <Nav user={this.state.currentUser} updateUser={this.updateUser}/>
         
+        {/* Switch Routes */}
         <Switch>
 
-            <Route exact path='/' render={()=>{
-            return this.state.currentUser ? (
-              <Home/>
-                ) : (
-              <Redirect to='/login' />
-                )
-              }} />
-
-            <Route exact path='/outfitshow' render={()=>{
-            return this.state.currentUser ? (
-              <OutfitShow/>
-                ) : (
-              <Redirect to='/login' />
-                )
-              }} />
-
-            <Route exact path='/profile' render={()=>{
-            return this.state.currentUser ? (
-              <Profile user={this.state.currentUser}/>
-                ) : (
-              <Redirect to='/login' />
-                )
-              }} />
-
-            
+            {/* Login */}
             <Route exact path='/login' render={()=>{
               return this.state.currentUser ? (
                 <Redirect to='/profile' />
@@ -85,38 +62,7 @@ class App extends React.Component{
               )
             }}/>
 
-            <Route exact path='/updateprofile' render={()=>{
-            return this.state.currentUser ? (
-              <UpdateProfile/>
-                ) : (
-              <Redirect to='/login' />
-                )
-              }} />
-
-            <Route exact path='/addclothes' render={()=>{
-            return this.state.currentUser ? (
-              <AddClothes />
-                ) : (
-              <Redirect to='/login' />
-                )
-              }} />
-
-            <Route exact path='/clothescontainer' render={()=>{
-            return this.state.currentUser ? (
-              <ClothesContainer />
-                ) : (
-              <Redirect to='/login' />
-                )
-              }} />
-
-            <Route exact path='/updateclothingitem' render={()=>{
-            return this.state.currentUser ? (
-              <UpdateClothingItem />
-                ) : (
-              <Redirect to='/login' />
-                )
-              }} />
-
+            {/* Register */}
             <Route exact path='/register' render={()=>{
             return this.state.currentUser ? (
               <Redirect to='/' />
@@ -125,6 +71,70 @@ class App extends React.Component{
                 )
               }} />
 
+            {/* Profile */}
+            <Route exact path='/profile' render={()=>{
+            return this.state.currentUser ? (
+              <Profile user={this.state.currentUser}/>
+                ) : (
+              <Redirect to='/login' />
+                )
+              }} />
+
+            {/* Update Profile */}
+            <Route exact path='/updateprofile' render={()=>{
+            return this.state.currentUser ? (
+              <UpdateProfile/>
+                ) : (
+              <Redirect to='/login' />
+                )
+              }} />
+
+            {/* Add New Clothes */}
+            <Route exact path='/addclothes' render={()=>{
+            return this.state.currentUser ? (
+              <AddClothes />
+                ) : (
+              <Redirect to='/login' />
+                )
+              }} />
+
+            {/* List of Outfits/ Home */}
+            <Route exact path='/' render={()=>{
+            return this.state.currentUser ? (
+              <Home/>
+                ) : (
+              <Redirect to='/login' />
+                )
+              }} />
+
+            {/* Outfit Show */}
+            <Route exact path='/outfitshow' render={()=>{
+            return this.state.currentUser ? (
+              <OutfitShow/>
+                ) : (
+              <Redirect to='/login' />
+                )
+              }} />
+
+            {/* Clothes Container */}
+            <Route exact path='/clothescontainer' render={()=>{
+            return this.state.currentUser ? (
+              <ClothesContainer />
+                ) : (
+              <Redirect to='/login' />
+                )
+              }} />
+
+            {/* Update Clothes Item */}
+            <Route exact path='/updateclothingitem' render={()=>{
+            return this.state.currentUser ? (
+              <UpdateClothingItem />
+                ) : (
+              <Redirect to='/login' />
+                )
+              }} />
+
+            {/* Error 404 */}
             <Route component={NotFound} />
         </Switch>
       </>

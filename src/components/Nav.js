@@ -12,12 +12,18 @@ class Nav extends React.Component{
     render() {
         return(
             <div>
-                <NavLink to="/">Home</NavLink>
-                <NavLink to="/profile" name="Profile">Profile</NavLink> 
+                
+                {this.props.user ? (
+                    <NavLink to="/">Home</NavLink> 
+                    ):(null)}
 
                 {this.props.user ? (
+                    <NavLink to="/profile" name="Profile">Profile</NavLink> 
+                    ):(null)}
+                
+                {this.props.user ? (
                     <NavLink to="/" name="Logout" onClick={this.logout} >Logout</NavLink>
-                ):(<NavLink to="/login" name="Login">Login</NavLink>)}
+                    ):(<NavLink to="/login" name="Login">Login</NavLink>)}
             </div>
         )
     }

@@ -1,4 +1,6 @@
 import React from 'react'
+import {Link} from 'react-router-dom';
+
 
 class Login extends React.Component{
     constructor(){
@@ -55,6 +57,8 @@ class Login extends React.Component{
                     <input onChange={this.handleUsernameChange} value={this.state.username} name='username' type='username' placeholder='username'/>
                     <input onChange={this.handlePasswordChange} value={this.state.password} name='password' type='password' placeholder='password'/>
                     <input type='submit' value='Login'/>
+
+                    <Link to="/register">Register</Link>
 
                 </form>
             </div>

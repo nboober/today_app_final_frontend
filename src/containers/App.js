@@ -45,9 +45,13 @@ class App extends React.Component{
         
         <Switch>
 
-          <Route exact path='/' render={()=>{
-            return <Home/>
-          }}/>
+            <Route exact path='/' render={()=>{
+            return this.state.currentUser ? (
+              <Home/>
+                ) : (
+              <Redirect to='/login' />
+                )
+              }} />
 
           <Route exact path='/profile' render={()=>{
             return this.state.currentUser ? (
@@ -56,6 +60,8 @@ class App extends React.Component{
               <Redirect to='/login' />
                 )
               }} />
+
+            {/* <Route exact path="/updateprofile" render={} /> */}
               
 
           <Route exact path='/login' render={()=>{

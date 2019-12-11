@@ -52,6 +52,8 @@ class Login extends React.Component{
     render(){
         return(
             <div>
+                Welcome to Today
+
                 <form onSubmit={this.handleLoginSubmit}>
 
                     <input onChange={this.handleUsernameChange} value={this.state.username} name='username' type='username' placeholder='username'/>

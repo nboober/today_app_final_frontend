@@ -1,6 +1,6 @@
 import React from 'react'
 
-class Register extends React.Component{
+class UpdateProfile extends React.Component{
     constructor(){
         super()
         this.state={
@@ -48,33 +48,35 @@ class Register extends React.Component{
     }
 
     handleRegisterSubmit = (event) => {
-        event.preventDefault()
-        fetch('http://localhost:3000/users',{
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify({
-                    user:{
-                        username: this.state.username,
-                        password: this.state.password,
-                        firstname: this.state.firstname,
-                        lastname: this.state.lastname,
-                        avatar: this.state.avatar
-                    }
-                })
-            })
-            .then(response => response.json())
-            .then(user => {
-                console.log(user)
-            })
+        // Update Profile fetch goes here
+
+        // event.preventDefault()
+        // fetch('http://localhost:3000/users',{
+        //         method: 'POST',
+        //         headers: {
+        //             'Content-Type': 'application/json',
+        //             'Accept': 'application/json'
+        //         },
+        //         body: JSON.stringify({
+        //             user:{
+        //                 username: this.state.username,
+        //                 password: this.state.password,
+        //                 firstname: this.state.firstname,
+        //                 lastname: this.state.lastname,
+        //                 avatar: this.state.avatar
+        //             }
+        //         })
+        //     })
+        //     .then(response => response.json())
+        //     .then(user => {
+        //         console.log(user)
+        //     })
     }
 
     render(){
         return(
             <div>
-                Register
+                Update Profile
                 <form onSubmit={this.handleRegisterSubmit}>
 
                 <input value={this.state.username} onChange={this.handleUsernameChange} name='username' placeholder='username'/>
@@ -90,4 +92,4 @@ class Register extends React.Component{
     }
 }
 
-export default Register
+export default UpdateProfile

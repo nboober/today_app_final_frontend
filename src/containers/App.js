@@ -67,7 +67,7 @@ class App extends React.Component{
             return this.state.currentUser ? (
               <Redirect to='/' />
               ) : (
-                <Register />
+                <Register updateUser={this.updateUser}/>
                 )
               }} />
 

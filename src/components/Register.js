@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 class Register extends React.Component{
     constructor(){
@@ -68,12 +69,14 @@ class Register extends React.Component{
             .then(response => response.json())
             .then(user => {
                 console.log(user)
+                this.props.updateUser(user)
             })
     }
 
     render(){
         return(
             <div>
+                <Link to="/login">Login</Link>
                 Register
                 <form onSubmit={this.handleRegisterSubmit}>
 

@@ -77,7 +77,7 @@ class UpdateProfile extends React.Component{
         return(
             <div>
                 Update Profile
-                <form onSubmit={this.handleRegisterSubmit}>
+                <form onSubmit={""}>
 
                 <input value={this.state.username} onChange={this.handleUsernameChange} name='username' placeholder='username'/>
                 <input value={this.state.password} onChange={this.handlePasswordChange} name='password' placeholder='password'/>

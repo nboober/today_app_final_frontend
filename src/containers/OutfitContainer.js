@@ -1,6 +1,5 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
-import ClothingItem from '../components/ClothingItem'
 
 class OutfitContainer extends React.Component{
     render(){

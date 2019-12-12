@@ -8,10 +8,10 @@ class OutfitContainer extends React.Component{
             <Link to="/outfitshow">
                 <div>
                     This is the outfits container
-                    <ClothingItem/>
-                    <ClothingItem/>
-                    <ClothingItem/>
-                    <ClothingItem/>
+                    Shirt Picture
+                    belt Picture
+                    pants Picture
+                    shoes Picture
                 </div>
             </Link>
         )

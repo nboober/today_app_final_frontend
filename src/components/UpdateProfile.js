@@ -94,23 +94,23 @@ class UpdateProfile extends React.Component{
                 <form onSubmit={this.updateUser}>
 
                 <label>Username</label>
-                <input value={this.state.username} onChange={this.handleUsernameChange} name='username' placeholder='username'/>
+                <input type="text" value={this.state.username} onChange={this.handleUsernameChange} name='username' placeholder='username'/>
                 <br/>
 
                 <label>Password</label>
-                <input value={this.state.password} onChange={this.handlePasswordChange} name='password' placeholder='password'/>
+                <input type="password" value={this.state.password} onChange={this.handlePasswordChange} name='password' placeholder='password'/>
                 <br/>
 
                 <label>First Name</label>
-                <input value={this.state.firstname} onChange={this.handleFirstnameChange} name='firstname' placeholder='firstname'/>
+                <input type="text" value={this.state.firstname} onChange={this.handleFirstnameChange} name='firstname' placeholder='firstname'/>
                 <br/>
 
                 <label>Last Name</label>
-                <input value={this.state.lastname} onChange={this.handleLastnameChange} name='lastname' placeholder='lastname'/>
+                <input type="text" value={this.state.lastname} onChange={this.handleLastnameChange} name='lastname' placeholder='lastname'/>
                 <br/>
 
                 <label>Avatar</label>
-                <input value={this.state.avatar} onChange={this.handleAvatarChange} name='avatar' placeholder='avatar'/>
+                <input type="text" value={this.state.avatar} onChange={this.handleAvatarChange} name='avatar' placeholder='avatar'/>
                 <br/>
 
                 <input type='submit' value='Update'/>

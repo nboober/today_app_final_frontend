@@ -22,7 +22,7 @@ class Nav extends React.Component{
                     ):(null)}
                 
                 {this.props.user ? (
-                    <NavLink to="/" name="Logout" onClick={this.logout} >Logout</NavLink>
+                    <NavLink to="/login" name="Logout" onClick={this.logout} >Logout</NavLink>
                     ):(null)}
             </div>
         )

@@ -77,15 +77,37 @@ class Register extends React.Component{
         return(
             <div>
                 <Link to="/login">Login</Link>
+
+                <br/>
+                <br/>
+
                 Register
+                <br/>
+                <br/>
+
                 <form onSubmit={this.handleRegisterSubmit}>
 
-                <input value={this.state.username} onChange={this.handleUsernameChange} name='username' placeholder='username'/>
-                <input value={this.state.password} onChange={this.handlePasswordChange} name='password' placeholder='password'/>
-                <input value={this.state.firstname} onChange={this.handleFirstnameChange} name='firstname' placeholder='firstname'/>
-                <input value={this.state.lastname} onChange={this.handleLastnameChange} name='lastname' placeholder='lastname'/>
-                <input value={this.state.avatar} onChange={this.handleAvatarChange} name='avatar' placeholder='avatar'/>
-                <input type='submit' value='Register'/>
+                <label>Username</label>
+                <input type="text" value={this.state.username} onChange={this.handleUsernameChange} name='username' placeholder='username'/>
+                <br/>
+
+                <label>Password</label>
+                <input type="password" value={this.state.password} onChange={this.handlePasswordChange} name='password' placeholder='password'/>
+                <br/>
+
+                <label>First Name</label>
+                <input type="text" value={this.state.firstname} onChange={this.handleFirstnameChange} name='firstname' placeholder='firstname'/>
+                <br/>
+
+                <label>Last Name</label>
+                <input type="text" value={this.state.lastname} onChange={this.handleLastnameChange} name='lastname' placeholder='lastname'/>
+                <br/>
+
+                <label>Avatar</label>
+                <input type="text" value={this.state.avatar} onChange={this.handleAvatarChange} name='avatar' placeholder='avatar'/>
+                <br/>
+
+                <input type="text" type='submit' value='Register'/>
 
                 </form>
             </div>

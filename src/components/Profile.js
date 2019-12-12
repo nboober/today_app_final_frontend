@@ -2,21 +2,16 @@ import React from 'react'
 import OutfitContainer from '../containers/OutfitContainer'
 import {Link} from 'react-router-dom';
 
-
 class Profile extends React.Component{
     render(){
         return(
             <div>
-                My Profile
+                {this.props.user.firstname}'s Profile
+                <br></br>
 
                 My Favorite Outfits
-                <OutfitContainer/>
-                <OutfitContainer/>
-                <OutfitContainer/>
-                <OutfitContainer/>
-                <OutfitContainer/>
-                <OutfitContainer/>
 
+                <br/>
                 <Link to="/updateprofile" >Update Profile</Link>
                 <Link to="/addclothes" >Add Clothes</Link>
                 <Link to="/clothescontainer" >Update Clothes</Link>

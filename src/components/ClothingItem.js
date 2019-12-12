@@ -6,8 +6,10 @@ class ClothingItem extends React.Component{
         return(
                 // I can't put an anchor tag in an anchor tag. So how do I update clothes while still showing the outfit?????
             <Link to="/updateclothingitem">
-                <div>
-                    Clothing Item
+                <div style={{border: "1px solid black", width: "200px"}}>
+                    <h2>{this.props.clothingItem.name}</h2>
+                    <img style={{width: "50px"}} src={this.props.clothingItem.image} alt={this.props.clothingItem.name}/>
+                    <p>{this.props.clothingItem.location}</p>
                 </div>            
             </Link>
         )

@@ -4,7 +4,8 @@ class Search extends React.Component{
     render(){
         return(
             <div>
-                Location Search Bar/ Clothing Search Bar
+                <label>Search</label>
+                <input type="text" onChange={this.props.search}/>
             </div>
         )
     }

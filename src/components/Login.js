@@ -41,7 +41,7 @@ class Login extends React.Component{
             .then(response => response.json())
             .then(data => {
                 alert(data.message)
-                console.log(data)
+                console.log(data.user)
                 // save token in local storage
                 localStorage.setItem("jwt", data.token)
                 // Update state with current user

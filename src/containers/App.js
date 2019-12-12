@@ -18,7 +18,9 @@ class App extends React.Component{
   constructor(){
     super()
     this.state={
-      currentUser: null
+      currentUser: null,
+      clothes: [],
+      searchText: ""
     }
   }
 
@@ -38,7 +40,15 @@ class App extends React.Component{
 
   updateUser = (user) => {
     this.setState({
-      currentUser: user
+      currentUser: user,
+      clothes: user.clothes
+    })
+  }
+
+  search = (event) => {
+    // console.log(event.target.value)
+    this.setState({
+      searchText: event.target.value
     })
   }
 
@@ -54,7 +64,7 @@ class App extends React.Component{
             {/* Login */}
             <Route exact path='/login' render={()=>{
               return this.state.currentUser ? (
-                <Redirect to='/profile' />
+                <Redirect to='/profile' user={this.state.currentUser}/>
               ) : (
                 <Login
                   updateUser={this.updateUser}
@@ -92,7 +102,7 @@ class App extends React.Component{
             {/* Add New Clothes */}
             <Route exact path='/addclothes' render={()=>{
             return this.state.currentUser ? (
-              <AddClothes />
+              <AddClothes user={this.state.currentUser}/>
                 ) : (
               <Redirect to='/login' />
                 )
@@ -119,7 +129,9 @@ class App extends React.Component{
             {/* Clothes Container */}
             <Route exact path='/clothescontainer' render={()=>{
             return this.state.currentUser ? (
-              <ClothesContainer />
+              <ClothesContainer search={this.search} clothes={this.state.clothes.filter((item)=>{
+                return item.name.includes(this.state.searchText)
+              })}/>
                 ) : (
               <Redirect to='/login' />
                 )

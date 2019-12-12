@@ -12,6 +12,16 @@ class UpdateProfile extends React.Component{
         }
     }
 
+    componentDidMount = () => {
+        this.setState({
+            username: this.props.user.username,
+            password: this.props.user.password_digest,
+            firstname: this.props.user.firstname,
+            lastname: this.props.user.lastname,
+            avatar: this.props.user.avatar
+        })
+    }
+
     handleUsernameChange = (event) => {
         
         this.setState({
@@ -47,44 +57,63 @@ class UpdateProfile extends React.Component{
         })
     }
 
-    handleRegisterSubmit = (event) => {
-        // Update Profile fetch goes here
+    updateUser = (event) => {
+        event.preventDefault()
 
-        // event.preventDefault()
-        // fetch('http://localhost:3000/users',{
-        //         method: 'POST',
-        //         headers: {
-        //             'Content-Type': 'application/json',
-        //             'Accept': 'application/json'
-        //         },
-        //         body: JSON.stringify({
-        //             user:{
-        //                 username: this.state.username,
-        //                 password: this.state.password,
-        //                 firstname: this.state.firstname,
-        //                 lastname: this.state.lastname,
-        //                 avatar: this.state.avatar
-        //             }
-        //         })
-        //     })
-        //     .then(response => response.json())
-        //     .then(user => {
-        //         console.log(user)
-        //     })
+        let id = this.props.user.id;
+        
+        fetch(`http://localhost:3000/users/${id}`,{
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    user:{
+                        username: this.state.username,
+                        password: this.state.password,
+                        firstname: this.state.firstname,
+                        lastname: this.state.lastname,
+                        avatar: this.state.avatar
+                    }
+                })
+            })
+            .then(response => response.json())
+            .then(user => {
+                console.log(user)
+            })
     }
 
     render(){
         return(
             <div>
+                <br/>
                 Update Profile
-                <form onSubmit={""}>
+                <br/>
+                <br/>
+                <form onSubmit={this.updateUser}>
 
+                <label>Username</label>
                 <input value={this.state.username} onChange={this.handleUsernameChange} name='username' placeholder='username'/>
+                <br/>
+
+                <label>Password</label>
                 <input value={this.state.password} onChange={this.handlePasswordChange} name='password' placeholder='password'/>
+                <br/>
+
+                <label>First Name</label>
                 <input value={this.state.firstname} onChange={this.handleFirstnameChange} name='firstname' placeholder='firstname'/>
+                <br/>
+
+                <label>Last Name</label>
                 <input value={this.state.lastname} onChange={this.handleLastnameChange} name='lastname' placeholder='lastname'/>
+                <br/>
+
+                <label>Avatar</label>
                 <input value={this.state.avatar} onChange={this.handleAvatarChange} name='avatar' placeholder='avatar'/>
-                <input type='submit' value='Register'/>
+                <br/>
+
+                <input type='submit' value='Update'/>
 
                 </form>
             </div>

@@ -93,7 +93,7 @@ class App extends React.Component{
             {/* Update Profile */}
             <Route exact path='/updateprofile' render={()=>{
             return this.state.currentUser ? (
-              <UpdateProfile/>
+              <UpdateProfile user={this.state.currentUser}/>
                 ) : (
               <Redirect to='/login' />
                 )

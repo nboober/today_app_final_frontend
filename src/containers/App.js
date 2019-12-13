@@ -26,7 +26,7 @@ class App extends React.Component{
   }
 
   componentDidMount = () => {
-    if(localStorage.getItem('jwt') && localStorage.getItem('jwt') !== "undefined"){
+    if(localStorage.getItem('jwt')){
       fetch('http://localhost:3000/profile',{
         headers: {
           "Authorization": localStorage.getItem('jwt')
@@ -50,11 +50,6 @@ class App extends React.Component{
         })
       }
     })
-  }
-
-  logout = () => {
-    localStorage.removeItem("jwt")
-    this.updateUser(null)
   }
 
   updateClothes = (newObject) => {
@@ -176,6 +171,7 @@ class App extends React.Component{
             return this.state.currentUser ? (
               <ClothesContainer 
                 search={this.search} 
+                searchText={this.state.searchText}
                 selectClothingItem={this.selectClothingItem} 
                 clothes={this.state.clothes.filter((item)=>{
                   return item.name.includes(this.state.searchText)

@@ -81,7 +81,9 @@ class AddClothes extends React.Component{
             })
         })        
         .then(response => response.json())
-        .then(clothesItem => {this.props.addClothes(clothesItem)
+        .then(clothesItem => {
+            console.log(clothesItem)
+            this.props.addClothes(clothesItem)
         })
 
     }

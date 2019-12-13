@@ -84,19 +84,19 @@ class UpdateProfile extends React.Component{
             })
     }
 
-    deleteUser = () => {
-        // console.log("delete")
+    // deleteUser = () => {
+    //     // console.log("delete")
 
-        let id = this.props.user.id
+    //     let id = this.props.user.id
 
-        fetch(`http://localhost:3000/users/${id}`,{
-            method: 'DELETE'
-        })
-        .then(response => response.json())
-        .then(removedUser => {
-            console.log(removedUser)
-            return this.props.logout})
-    }
+    //     fetch(`http://localhost:3000/users/${id}`,{
+    //         method: 'DELETE'
+    //     })
+    //     .then(response => response.json())
+    //     .then(removedUser => {
+    //         console.log(removedUser)
+    //         return this.props.logout})
+    // }
 
     render(){
         return(
@@ -130,7 +130,7 @@ class UpdateProfile extends React.Component{
                     {/* <input type='submit' value='Update'/> */}
                     <Link onClick={this.updateUser} to="/profile">Update</Link>
                     <br/>
-                    <Link onClick={this.deleteUser} to="/login">Delete Profile</Link>
+                    {/* <Link onClick={this.deleteUser} to="/login">Delete Profile</Link> */}
 
 
                 </form>

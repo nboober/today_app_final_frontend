@@ -16,7 +16,7 @@ class UpdateProfile extends React.Component{
     componentDidMount = () => {
         this.setState({
             username: this.props.user.username,
-            password: this.props.user.password_digest,
+            // password: this.props.user.password_digest,
             firstname: this.props.user.firstname,
             lastname: this.props.user.lastname,
             avatar: this.props.user.avatar

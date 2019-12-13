@@ -40,6 +40,7 @@ class Login extends React.Component{
             })
             .then(response => response.json())
             .then(data => {
+                // debugger
                 alert(data.message)
                 console.log(data.user)
                 // save token in local storage

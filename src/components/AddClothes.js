@@ -9,7 +9,7 @@ class AddClothes extends React.Component{
             location: "",
             weather_category: "10",
             temp_category: "1000",
-            clothes_type: "",
+            clothes_type: "hat",
             image: ""
         }
     }

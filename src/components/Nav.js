@@ -3,11 +3,6 @@ import {NavLink} from 'react-router-dom';
 
 
 class Nav extends React.Component{    
-
-    logout = () => {
-        localStorage.removeItem("jwt")
-        this.props.updateUser(null)
-    }
     
     render() {
         return(
@@ -22,7 +17,7 @@ class Nav extends React.Component{
                     ):(null)}
                 
                 {this.props.user ? (
-                    <NavLink to="/login" name="Logout" onClick={this.logout} >Logout</NavLink>
+                    <NavLink to="/login" name="Logout" onClick={this.props.logout} >Logout</NavLink>
                     ):(null)}
             </div>
         )

@@ -26,7 +26,7 @@ class App extends React.Component{
   }
 
   componentDidMount = () => {
-    if(localStorage.getItem('jwt')){
+    if(localStorage.getItem('jwt') && localStorage.getItem('jwt') !== "undefined"){
       fetch('http://localhost:3000/profile',{
         headers: {
           "Authorization": localStorage.getItem('jwt')
@@ -40,10 +40,21 @@ class App extends React.Component{
   }
 
   updateUser = (user) => {
+    // console.log(user)
     this.setState({
-      currentUser: user,
-      clothes: user.clothes
+      currentUser: user
+    },()=>{
+      if(user){
+        this.setState({
+          clothes: user.clothes
+        })
+      }
     })
+  }
+
+  logout = () => {
+    localStorage.removeItem("jwt")
+    this.updateUser(null)
   }
 
   updateClothes = (newObject) => {
@@ -90,7 +101,7 @@ class App extends React.Component{
     return (
       <>
         {/* Nav Bar */}
-        <Nav user={this.state.currentUser} updateUser={this.updateUser}/>
+        <Nav user={this.state.currentUser} logout={this.logout} updateUser={this.updateUser}/>
         
         {/* Switch Routes */}
         <Switch>
@@ -127,7 +138,7 @@ class App extends React.Component{
             {/* Update Profile */}
             <Route exact path='/updateprofile' render={()=>{
             return this.state.currentUser ? (
-              <UpdateProfile user={this.state.currentUser} updateUser={this.updateUser}/>
+              <UpdateProfile user={this.state.currentUser} logout={this.logout} updateUser={this.updateUser}/>
                 ) : (
               <Redirect to='/login' />
                 )
@@ -163,9 +174,13 @@ class App extends React.Component{
             {/* Clothes Container */}
             <Route exact path='/clothescontainer' render={()=>{
             return this.state.currentUser ? (
-              <ClothesContainer search={this.search} selectClothingItem={this.selectClothingItem} clothes={this.state.clothes.filter((item)=>{
-                return item.name.includes(this.state.searchText)
-              })}/>
+              <ClothesContainer 
+                search={this.search} 
+                selectClothingItem={this.selectClothingItem} 
+                clothes={this.state.clothes.filter((item)=>{
+                  return item.name.includes(this.state.searchText)
+                })}
+              />
                 ) : (
               <Redirect to='/login' />
                 )

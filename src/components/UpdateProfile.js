@@ -84,6 +84,20 @@ class UpdateProfile extends React.Component{
             })
     }
 
+    deleteUser = () => {
+        // console.log("delete")
+
+        let id = this.props.user.id
+
+        fetch(`http://localhost:3000/users/${id}`,{
+            method: 'DELETE'
+        })
+        .then(response => response.json())
+        .then(removedUser => {
+            console.log(removedUser)
+            return this.props.logout})
+    }
+
     render(){
         return(
             <div>
@@ -91,30 +105,32 @@ class UpdateProfile extends React.Component{
                 Update Profile
                 <br/>
                 <br/>
-                <form onSubmit={this.updateUser}>
+                <form>
 
-                <label>Username</label>
-                <input type="text" value={this.state.username} onChange={this.handleUsernameChange} name='username' placeholder='username'/>
-                <br/>
+                    <label>Username</label>
+                    <input type="text" value={this.state.username} onChange={this.handleUsernameChange} name='username' placeholder='username'/>
+                    <br/>
 
-                <label>Password</label>
-                <input type="password" value={this.state.password} onChange={this.handlePasswordChange} name='password' placeholder='password'/>
-                <br/>
+                    <label>Password</label>
+                    <input type="password" value={this.state.password} onChange={this.handlePasswordChange} name='password' placeholder='password'/>
+                    <br/>
 
-                <label>First Name</label>
-                <input type="text" value={this.state.firstname} onChange={this.handleFirstnameChange} name='firstname' placeholder='firstname'/>
-                <br/>
+                    <label>First Name</label>
+                    <input type="text" value={this.state.firstname} onChange={this.handleFirstnameChange} name='firstname' placeholder='firstname'/>
+                    <br/>
 
-                <label>Last Name</label>
-                <input type="text" value={this.state.lastname} onChange={this.handleLastnameChange} name='lastname' placeholder='lastname'/>
-                <br/>
+                    <label>Last Name</label>
+                    <input type="text" value={this.state.lastname} onChange={this.handleLastnameChange} name='lastname' placeholder='lastname'/>
+                    <br/>
 
-                <label>Avatar</label>
-                <input type="text" value={this.state.avatar} onChange={this.handleAvatarChange} name='avatar' placeholder='avatar'/>
-                <br/>
+                    <label>Avatar</label>
+                    <input type="text" value={this.state.avatar} onChange={this.handleAvatarChange} name='avatar' placeholder='avatar'/>
+                    <br/>
 
-                {/* <input type='submit' value='Update'/> */}
-                <Link onClick={this.updateUser} to="/profile">Update Profile</Link>
+                    {/* <input type='submit' value='Update'/> */}
+                    <Link onClick={this.updateUser} to="/profile">Update</Link>
+                    <br/>
+                    <Link onClick={this.deleteUser} to="/login">Delete Profile</Link>
 
 
                 </form>

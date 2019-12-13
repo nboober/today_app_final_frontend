@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 class UpdateProfile extends React.Component{
     constructor(){
@@ -57,8 +58,8 @@ class UpdateProfile extends React.Component{
         })
     }
 
-    updateUser = (event) => {
-        event.preventDefault()
+    updateUser = () => {
+        // event.preventDefault()
 
         let id = this.props.user.id;
         
@@ -79,8 +80,7 @@ class UpdateProfile extends React.Component{
                 })
             })
             .then(response => response.json())
-            .then(user => {
-                console.log(user)
+            .then(user => {this.props.updateUser(user)
             })
     }
 
@@ -113,7 +113,9 @@ class UpdateProfile extends React.Component{
                 <input type="text" value={this.state.avatar} onChange={this.handleAvatarChange} name='avatar' placeholder='avatar'/>
                 <br/>
 
-                <input type='submit' value='Update'/>
+                {/* <input type='submit' value='Update'/> */}
+                <Link onClick={this.updateUser} to="/profile">Update Profile</Link>
+
 
                 </form>
             </div>

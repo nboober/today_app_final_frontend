@@ -20,6 +20,7 @@ class App extends React.Component{
     this.state={
       currentUser: null,
       clothes: [],
+      selectedClothingItem: {},
       searchText: ""
     }
   }
@@ -32,7 +33,7 @@ class App extends React.Component{
         }
       }).then(response => response.json())
       .then(user => {
-        console.log(user)
+        // console.log(user)
         this.updateUser(user)
       })
     }
@@ -42,6 +43,39 @@ class App extends React.Component{
     this.setState({
       currentUser: user,
       clothes: user.clothes
+    })
+  }
+
+  updateClothes = (newObject) => {
+
+    let updatedClothes = [];
+    
+    this.state.clothes.map((item)=>{
+      if(item.id !== newObject.id){
+        updatedClothes.push(item)
+      }
+    })
+
+    let finalArray = [...updatedClothes, newObject]
+
+    // console.log(finalArray)
+
+    this.setState({
+      clothes: finalArray
+    })
+    // console.log("updating clothes")
+  }
+
+  addClothes = (newObject) => {
+    this.setState({
+      clothes: [...this.state.clothes, newObject]
+    })
+  }
+
+  selectClothingItem = (clothingItem) => {
+    // console.log(clothingItem)
+    this.setState({
+      selectedClothingItem: clothingItem
     })
   }
 
@@ -102,7 +136,7 @@ class App extends React.Component{
             {/* Add New Clothes */}
             <Route exact path='/addclothes' render={()=>{
             return this.state.currentUser ? (
-              <AddClothes user={this.state.currentUser}/>
+              <AddClothes user={this.state.currentUser} addClothes={this.addClothes}/>
                 ) : (
               <Redirect to='/login' />
                 )
@@ -129,7 +163,7 @@ class App extends React.Component{
             {/* Clothes Container */}
             <Route exact path='/clothescontainer' render={()=>{
             return this.state.currentUser ? (
-              <ClothesContainer search={this.search} clothes={this.state.clothes.filter((item)=>{
+              <ClothesContainer search={this.search} selectClothingItem={this.selectClothingItem} clothes={this.state.clothes.filter((item)=>{
                 return item.name.includes(this.state.searchText)
               })}/>
                 ) : (
@@ -140,7 +174,7 @@ class App extends React.Component{
             {/* Update Clothes Item */}
             <Route exact path='/updateclothingitem' render={()=>{
             return this.state.currentUser ? (
-              <UpdateClothingItem />
+              <UpdateClothingItem updateClothes={this.updateClothes} selectedClothingItem={this.state.selectedClothingItem} user={this.state.currentUser}/>
                 ) : (
               <Redirect to='/login' />
                 )

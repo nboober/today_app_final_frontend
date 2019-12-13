@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 class AddClothes extends React.Component{
     constructor(){
@@ -6,8 +7,8 @@ class AddClothes extends React.Component{
         this.state={
             name: "",
             location: "",
-            weather_category: "9",
-            temp_category: "75",
+            weather_category: "10",
+            temp_category: "1000",
             clothes_type: "",
             image: ""
         }
@@ -58,9 +59,9 @@ class AddClothes extends React.Component{
 
     }
 
-    onSubmitForm = (event) => {
+    onSubmitForm = () => {
         // console.log("form submitted")
-        event.preventDefault()
+        // event.preventDefault()
         fetch("http://localhost:3000/clothes",{
             method: "POST",
             headers: {
@@ -71,14 +72,18 @@ class AddClothes extends React.Component{
                 clothe: {
                     name: this.state.name,
                     location: this.state.location,
-                    weather_category: this.state.weather_category,
-                    temp_category: this.state.temp_category,
+                    weather_category: parseInt(this.state.weather_category),
+                    temp_category: parseInt(this.state.temp_category),
                     clothes_type: this.state.clothes_type,
                     image: this.state.image,
                     user_id: this.props.user.id
                 }
             })
+        })        
+        .then(response => response.json())
+        .then(clothesItem => {this.props.addClothes(clothesItem)
         })
+
     }
 
 
@@ -97,6 +102,7 @@ class AddClothes extends React.Component{
                     <br/>
                     <label>Weather Type</label>
                     <select onChange={this.updateWeather}>
+                        <option value="10">Any Weather</option>
                         <option value="9">Snow</option>
                         <option value="8">Sleet</option>
                         <option value="7">Hail</option>
@@ -112,10 +118,11 @@ class AddClothes extends React.Component{
                     <br/>
                     <label>Season</label>
                     <select onChange={this.updateTemp}>
+                        <option value="1000">Any Season</option>
                         <option value="75">Summer</option>
                         <option value="60">Spring</option>
                         <option value="40">Fall</option>
-                        <option value="-100">Winter</option>
+                        <option value="0">Winter</option>
                     </select>
                     
                     <br/>
@@ -136,7 +143,9 @@ class AddClothes extends React.Component{
                     <input type="text" placeholder="https://www.imageURL.png" onChange={this.updateImage}/>
                     
                     <br/>
-                    <input type="submit" value="Add Clothing"/>
+                    {/* <input type="submit" value="Add Clothing"/> */}
+                    <Link onClick={this.onSubmitForm} to="/clothescontainer">Add Clothing</Link>
+
                     
                 </form>
             </div>

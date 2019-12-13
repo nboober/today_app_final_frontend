@@ -10,7 +10,7 @@ class ClothesContainer extends React.Component{
                 My List of Clothes
                 <Search search={this.props.search} />
                 {this.props.clothes.map((clothingItem)=>{
-                    return <ClothingItem key={clothingItem.id} clothingItem={clothingItem} />
+                    return <ClothingItem key={clothingItem.id} selectClothingItem={this.props.selectClothingItem} clothingItem={clothingItem} />
                 })}
 
             </div>

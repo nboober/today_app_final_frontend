@@ -19,6 +19,8 @@ class App extends React.Component{
     super()
     this.state={
       currentUser: null,
+      latitude: 0,
+      longitude:0,
       clothes: [],
       shirts: [],
       pants: [],
@@ -45,6 +47,47 @@ class App extends React.Component{
         this.updateUser(user)
       })
     }
+
+    this.getGeoLocation()
+
+  }
+
+  getGeoLocation = () => {
+    const showPosition = (position) => {
+      // console.log(position.coords.latitude);
+      // console.log(position.coords.longitude);
+        
+        this.setState({
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude
+        },()=>{
+          this.fetchLocation(this.state.latitude, this.state.longitude)
+        })
+      
+    }
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    } else { 
+      alert("Geolocation is not supported by this browser.");
+    }
+  }
+
+  fetchLocation = (lat, long) => {
+    let coordinates = lat + "," + long
+    // console.log(coordinates)
+
+    fetch(`http://localhost:3000/geolocation`,{
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'accept': 'application/json'
+      },
+      body: JSON.stringify({
+        coordinates: coordinates
+      })
+    })
+    .then(response => response.json())
+    .then(response => console.log(response))
   }
 
   mostOccuringClothesItem = () => {

@@ -133,13 +133,13 @@ class AddClothes extends React.Component{
                     
                     <br/>
                     <label>Weather Type</label><br/>
-                    <input type='checkbox' value="any" onChange={this.updateTemp}/>Any Season<br/>
-                    <input type='checkbox' value="snow" onChange={this.updateTemp}/>Snow<br/>
-                    <input type='checkbox' value="sleet" onChange={this.updateTemp}/>Sleet<br/>
-                    <input type='checkbox' value="hail" onChange={this.updateTemp}/>Hail<br/>
-                    <input type='checkbox' value="rain" onChange={this.updateTemp}/>Rain<br/>
-                    <input type='checkbox' value="cloudy" onChange={this.updateTemp}/>Cloudy<br/>
-                    <input type='checkbox' value="Clear" onChange={this.updateTemp}/>Clear<br/>
+                    <input type='checkbox' value="any" onChange={this.updateWeather}/>Any Season<br/>
+                    <input type='checkbox' value="snow" onChange={this.updateWeather}/>Snow<br/>
+                    <input type='checkbox' value="sleet" onChange={this.updateWeather}/>Sleet<br/>
+                    <input type='checkbox' value="hail" onChange={this.updateWeather}/>Hail<br/>
+                    <input type='checkbox' value="rain" onChange={this.updateWeather}/>Rain<br/>
+                    <input type='checkbox' value="cloudy" onChange={this.updateWeather}/>Cloudy<br/>
+                    <input type='checkbox' value="Clear" onChange={this.updateWeather}/>Clear<br/>
                     
                     <br/>
                     <label>Seasons</label><br/>

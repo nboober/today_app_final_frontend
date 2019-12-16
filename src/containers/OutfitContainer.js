@@ -7,11 +7,12 @@ class OutfitContainer extends React.Component{
         return(
             <Link to="/outfitshow">
                 <div>
-                    This is the outfits container
-                    Shirt Picture
-                    belt Picture
-                    pants Picture
-                    shoes Picture
+                    <img src={this.props.hats.image} alt="belt" style={{width: "50px"}}/>
+                    <img src={this.props.jewelry.image} alt="belt" style={{width: "50px"}}/>
+                    <img src={this.props.shirts.image} alt="belt" style={{width: "50px"}}/>
+                    <img src={this.props.belts.image} alt="belt" style={{width: "50px"}}/>
+                    <img src={this.props.pants.image} alt="belt" style={{width: "50px"}}/>
+                    <img src={this.props.shoes.image} alt="belt" style={{width: "50px"}}/>
                 </div>
             </Link>
         )

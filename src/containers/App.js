@@ -232,7 +232,14 @@ class App extends React.Component{
             {/* List of Outfits/ Home */}
             <Route exact path='/' render={()=>{
             return this.state.currentUser ? (
-              <Home/>
+              <Home 
+              max={this.state.mostOccuringClothesItem} 
+              shirts={this.state.shirts} 
+              pants={this.state.pants} 
+              shoes={this.state.shoes} 
+              hats={this.state.hats} 
+              belts={this.state.belts} 
+              jewelry={this.state.jewelry}/>
                 ) : (
               <Redirect to='/login' />
                 )

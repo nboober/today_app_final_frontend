@@ -181,7 +181,9 @@ class UpdateClothingItem extends React.Component{
             })
         })
         .then(response => response.json())
-        .then(clothesItem => {this.props.updateClothes(clothesItem)
+        .then(clothesItem => {
+            console.log(clothesItem)
+            this.props.updateClothes(clothesItem)
         })
     }
 
@@ -217,13 +219,13 @@ class UpdateClothingItem extends React.Component{
                     
                     <br/>
                     <label>Weather Type</label><br/>
-                    <input id="anyWeather" type='checkbox' value="any" onChange={this.updateTemp}/>Any Season<br/>
-                    <input id="snow" type='checkbox' value="snow" onChange={this.updateTemp}/>Snow<br/>
-                    <input id="sleet" type='checkbox' value="sleet" onChange={this.updateTemp}/>Sleet<br/>
-                    <input id="hail" type='checkbox' value="hail" onChange={this.updateTemp}/>Hail<br/>
-                    <input id="rain" type='checkbox' value="rain" onChange={this.updateTemp}/>Rain<br/>
-                    <input id="cloudy" type='checkbox' value="cloudy" onChange={this.updateTemp}/>Cloudy<br/>
-                    <input id="clear" type='checkbox' value="Clear" onChange={this.updateTemp}/>Clear<br/>
+                    <input id="anyWeather" type='checkbox' value="any" onChange={this.updateWeather}/>Any Season<br/>
+                    <input id="snow" type='checkbox' value="snow" onChange={this.updateWeather}/>Snow<br/>
+                    <input id="sleet" type='checkbox' value="sleet" onChange={this.updateWeather}/>Sleet<br/>
+                    <input id="hail" type='checkbox' value="hail" onChange={this.updateWeather}/>Hail<br/>
+                    <input id="rain" type='checkbox' value="rain" onChange={this.updateWeather}/>Rain<br/>
+                    <input id="cloudy" type='checkbox' value="cloudy" onChange={this.updateWeather}/>Cloudy<br/>
+                    <input id="clear" type='checkbox' value="Clear" onChange={this.updateWeather}/>Clear<br/>
                     
                     <br/>
                     <label>Seasons</label><br/>

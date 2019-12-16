@@ -47,7 +47,7 @@ class UpdateClothingItem extends React.Component{
         }
 
         if(temp.includes("winter")){
-            document.getElementById("fall").checked = true
+            document.getElementById("winter").checked = true
         }
 
         if(weather.includes("any")){

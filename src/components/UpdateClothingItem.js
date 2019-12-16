@@ -7,8 +7,8 @@ class UpdateClothingItem extends React.Component{
         this.state={
             name: "",
             location: "",
-            weather_category: "",
-            temp_category: "",
+            weather_category: [],
+            temp_category: [],
             clothes_type: "",
             image: ""
         }
@@ -22,8 +22,62 @@ class UpdateClothingItem extends React.Component{
             temp_category: this.props.selectedClothingItem.temp_category,
             clothes_type: this.props.selectedClothingItem.clothes_type,
             image: this.props.selectedClothingItem.image
+        },()=>{this.checkCheckBoxes()})
+    }
 
-        })
+    checkCheckBoxes = () => {
+
+        let weather = this.state.weather_category;
+        let temp = this.state.temp_category
+
+        if(temp.includes("any")){
+            document.getElementById("anySeason").checked = true
+        }
+        
+        if(temp.includes("summer")){
+            document.getElementById("summer").checked = true
+        }
+
+        if(temp.includes("spring")){
+            document.getElementById("spring").checked = true
+        }
+
+        if(temp.includes("fall")){
+            document.getElementById("fall").checked = true
+        }
+
+        if(temp.includes("winter")){
+            document.getElementById("fall").checked = true
+        }
+
+        if(weather.includes("any")){
+            document.getElementById("anyWeather").checked = true
+        }
+
+        if(weather.includes("snow")){
+            document.getElementById("snow").checked = true
+        }
+
+        if(weather.includes("sleet")){
+            document.getElementById("sleet").checked = true
+        }
+
+        if(weather.includes("hail")){
+            document.getElementById("hail").checked = true
+        }
+
+        if(weather.includes("rain")){
+            document.getElementById("rain").checked = true
+        }
+
+        if(weather.includes("cloudy")){
+            document.getElementById("cloudy").checked = true
+        }
+
+        if(weather.includes("clear")){
+            document.getElementById("clear").checked = true
+        }
+
     }
 
     updateName = (event) => {
@@ -40,21 +94,50 @@ class UpdateClothingItem extends React.Component{
         })
         
     }
+
     updateWeather = (event) => {
         // console.log(event.target.value)
-        this.setState({
-            weather_category: event.target.value
-        })
+
+        // console.log(this.state.weather_category)
+
+        if(this.state.weather_category.includes(event.target.value)){
+            let index = this.state.weather_category.indexOf(event.target.value);
+            if (index > -1) {
+                this.state.weather_category.splice(index, 1);
+            }
+            console.log(this.state.weather_category)
+        }else{
+
+            this.setState({
+                weather_category: [...this.state.weather_category, event.target.value]
+            },()=>{console.log(this.state.weather_category)
+            })
+
+        }
         
     }
 
     updateTemp = (event) => {
         // console.log(event.target.value)
-        this.setState({
-            temp_category: event.target.value
-        })
+
+        // console.log(this.state.temp_category)
+        if(this.state.temp_category.includes(event.target.value)){
+            let index = this.state.temp_category.indexOf(event.target.value);
+            if (index > -1) {
+            this.state.temp_category.splice(index, 1);
+            }
+            console.log(this.state.temp_category)
+        }else{
+
+            this.setState({
+                temp_category: [...this.state.temp_category, event.target.value]
+            },()=>{console.log(this.state.temp_category)
+            })
+
+        }
 
     }
+
     updateType = (event) => {
         // console.log(event.target.value)
         this.setState({
@@ -133,30 +216,22 @@ class UpdateClothingItem extends React.Component{
                     <input type="text" placeholder="Closet 1, Drawer 1" onChange={this.updateLocation} value={this.state.location}/>
                     
                     <br/>
-                    <label>Weather Type</label>
-                    <select onChange={this.updateWeather} value={this.state.weather_category}>
-                        <option value="10">Any Weather</option>
-                        <option value="9">Snow</option>
-                        <option value="8">Sleet</option>
-                        <option value="7">Hail</option>
-                        <option value="6">Thunderstorms</option>
-                        <option value="5">Heavy Rain</option>
-                        <option value="4">Light Rain</option>
-                        <option value="3">Showers</option>
-                        <option value="2">Heavy Clouds</option>
-                        <option value="1">Light Clouds</option>
-                        <option value="0">Clear</option>
-                    </select>
+                    <label>Weather Type</label><br/>
+                    <input id="anyWeather" type='checkbox' value="any" onChange={this.updateTemp}/>Any Season<br/>
+                    <input id="snow" type='checkbox' value="snow" onChange={this.updateTemp}/>Snow<br/>
+                    <input id="sleet" type='checkbox' value="sleet" onChange={this.updateTemp}/>Sleet<br/>
+                    <input id="hail" type='checkbox' value="hail" onChange={this.updateTemp}/>Hail<br/>
+                    <input id="rain" type='checkbox' value="rain" onChange={this.updateTemp}/>Rain<br/>
+                    <input id="cloudy" type='checkbox' value="cloudy" onChange={this.updateTemp}/>Cloudy<br/>
+                    <input id="clear" type='checkbox' value="Clear" onChange={this.updateTemp}/>Clear<br/>
                     
                     <br/>
-                    <label>Season</label>
-                    <select onChange={this.updateTemp} value={this.state.temp_category}>
-                        <option value="0">Any Season</option>
-                        <option value="75">Summer</option>
-                        <option value="60">Spring</option>
-                        <option value="40">Fall</option>
-                        <option value="0">Winter</option>
-                    </select>
+                    <label>Seasons</label><br/>
+                    <input id="anySeason" type='checkbox' value="any" onChange={this.updateTemp}/>Any Season<br/>
+                    <input id="summer" type='checkbox' value="summer" onChange={this.updateTemp}/>Summer<br/>
+                    <input id="spring" type='checkbox' value="spring" onChange={this.updateTemp}/>Spring<br/>
+                    <input id="fall" type='checkbox' value="fall" onChange={this.updateTemp}/>Fall<br/>
+                    <input id="winter" type='checkbox' value="winter" onChange={this.updateTemp}/>Winter<br/>
                     
                     <br/>
                     <label>Clothing Type</label>

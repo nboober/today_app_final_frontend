@@ -28,6 +28,7 @@ class AddClothes extends React.Component{
         })
         
     }
+
     updateWeather = (event) => {
         // console.log(event.target.value)
 
@@ -70,6 +71,7 @@ class AddClothes extends React.Component{
         }
 
     }
+    
     updateType = (event) => {
         // console.log(event.target.value)
         this.setState({

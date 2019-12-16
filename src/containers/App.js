@@ -96,7 +96,52 @@ class App extends React.Component{
       this.setState({
         currentWeatherState: response.consolidated_weather[0].weather_state_name.toLowerCase(),
         currentTemp: (response.consolidated_weather[0].the_temp * (9/5) + 32)
+      },() => {this.filterClothesByWeather()})
+    })
+  }
+
+  filterClothesByWeather = () => {
+
+    let weatherStateInt = 0;
+    let currentWeather = this.state.currentWeatherState
+
+    if(currentWeather === "snow"){
+      weatherStateInt = 9
+    }else if(currentWeather === "sleet"){
+      weatherStateInt = 8
+    }else if(currentWeather === "hail"){
+      weatherStateInt = 7
+    }else if(currentWeather === "thunderstorm"){
+      weatherStateInt = 6
+    }else if(currentWeather === "heavy rain"){
+      weatherStateInt = 5
+    }else if(currentWeather === "light rain"){
+      weatherStateInt = 4
+    }else if(currentWeather === "showers"){
+      weatherStateInt = 3
+    }else if(currentWeather === "heavy cloud"){
+      weatherStateInt = 2
+    }else if(currentWeather === "light cloud"){
+      weatherStateInt = 1
+    }else if(currentWeather === "clear"){
+      weatherStateInt = 0
+    }
+
+    // console.log(weatherStateInt)
+
+    this.setState({
+      clothes: this.state.clothes.filter((item)=>{
+        return item.weather_category > weatherStateInt && item.temp_category <= this.state.currentTemp
       })
+    },()=>{
+      this.setState({
+        shirts: this.state.clothes.filter((item)=>item.clothes_type === "shirt"),
+        pants: this.state.clothes.filter((item)=>item.clothes_type === "pants"),
+        shoes: this.state.clothes.filter((item)=>item.clothes_type === "shoes"),
+        hats: this.state.clothes.filter((item)=>item.clothes_type === "hat"),
+        belts: this.state.clothes.filter((item)=>item.clothes_type === "belt"),
+        jewelry: this.state.clothes.filter((item)=>item.clothes_type === "jewelry")
+      },()=> this.mostOccuringClothesItem())
     })
   }
 
@@ -150,14 +195,7 @@ class App extends React.Component{
         this.setState({
           clothes: user.clothes
         },()=>{
-          this.setState({
-            shirts: this.state.clothes.filter((item)=>item.clothes_type === "shirt"),
-            pants: this.state.clothes.filter((item)=>item.clothes_type === "pants"),
-            shoes: this.state.clothes.filter((item)=>item.clothes_type === "shoes"),
-            hats: this.state.clothes.filter((item)=>item.clothes_type === "hat"),
-            belts: this.state.clothes.filter((item)=>item.clothes_type === "belt"),
-            jewelry: this.state.clothes.filter((item)=>item.clothes_type === "jewelry")
-          },()=> this.mostOccuringClothesItem())
+          this.filterClothesByWeather()
         })
       }
     })
@@ -180,14 +218,7 @@ class App extends React.Component{
     this.setState({
       clothes: finalArray
     },()=>{
-      this.setState({
-        shirts: this.state.clothes.filter((item)=>item.clothes_type === "shirt"),
-        pants: this.state.clothes.filter((item)=>item.clothes_type === "pants"),
-        shoes: this.state.clothes.filter((item)=>item.clothes_type === "shoes"),
-        hats: this.state.clothes.filter((item)=>item.clothes_type === "hat"),
-        belts: this.state.clothes.filter((item)=>item.clothes_type === "belt"),
-        jewelry: this.state.clothes.filter((item)=>item.clothes_type === "jewelry")
-      },()=> this.mostOccuringClothesItem())
+      this.filterClothesByWeather()
     })
     // console.log("updating clothes")
   }
@@ -215,14 +246,7 @@ class App extends React.Component{
     this.setState({
       clothes: finalArray
     },()=>{
-      this.setState({
-        shirts: this.state.clothes.filter((item)=>item.clothes_type === "shirt"),
-        pants: this.state.clothes.filter((item)=>item.clothes_type === "pants"),
-        shoes: this.state.clothes.filter((item)=>item.clothes_type === "shoes"),
-        hats: this.state.clothes.filter((item)=>item.clothes_type === "hat"),
-        belts: this.state.clothes.filter((item)=>item.clothes_type === "belt"),
-        jewelry: this.state.clothes.filter((item)=>item.clothes_type === "jewelry")
-      },()=> this.mostOccuringClothesItem())
+      this.filterClothesByWeather()
     })
     // console.log("updating clothes")
   }
@@ -231,14 +255,7 @@ class App extends React.Component{
     this.setState({
       clothes: [...this.state.clothes, newObject]
     },()=>{
-      this.setState({
-        shirts: this.state.clothes.filter((item)=>item.clothes_type === "shirt"),
-        pants: this.state.clothes.filter((item)=>item.clothes_type === "pants"),
-        shoes: this.state.clothes.filter((item)=>item.clothes_type === "shoes"),
-        hats: this.state.clothes.filter((item)=>item.clothes_type === "hat"),
-        belts: this.state.clothes.filter((item)=>item.clothes_type === "belt"),
-        jewelry: this.state.clothes.filter((item)=>item.clothes_type === "jewelry")
-      },()=> this.mostOccuringClothesItem())
+      this.filterClothesByWeather()
     })
    
   }

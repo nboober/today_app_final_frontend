@@ -122,6 +122,7 @@ class UpdateClothingItem extends React.Component{
         // {console.log(this.props.selectedClothingItem)}
         return(
             <div>
+                <h2>Update Clothing Item</h2>
                 <form onSubmit={this.onSubmitForm}>
 
                     <br/>

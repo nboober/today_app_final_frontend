@@ -5,6 +5,7 @@ class OutfitShow extends React.Component{
     render(){
         return(
             <div>
+                <h2>Your Outfit</h2>
                 <ClothingItem selectClothingItem={this.props.selectClothingItem} clothingItem={this.props.outfit[0]}/>
                 <ClothingItem selectClothingItem={this.props.selectClothingItem} clothingItem={this.props.outfit[1]}/>
                 <ClothingItem selectClothingItem={this.props.selectClothingItem} clothingItem={this.props.outfit[2]}/>

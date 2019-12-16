@@ -92,6 +92,7 @@ class AddClothes extends React.Component{
     render(){
         return(
             <div>
+                <h2>Add Clothes</h2>
                 <form onSubmit={this.onSubmitForm}>
 
                     <br/>

@@ -103,7 +103,7 @@ class UpdateProfile extends React.Component{
         return(
             <div>
                 <br/>
-                Update Profile
+                <h2>Update Profile</h2>
                 <br/>
                 <br/>
                 <form>

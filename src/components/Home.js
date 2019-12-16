@@ -6,7 +6,7 @@ import _ from 'lodash';
 class Home extends React.Component{
     render(){
         return(
-            <div>
+            <div >
                 <Filter/>
                 {_.times(this.props.max, (index) => {
                     let hats = this.props.hats[index] ? this.props.hats[index] : this.props.hats[index-1]

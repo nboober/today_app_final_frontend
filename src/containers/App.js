@@ -21,6 +21,8 @@ class App extends React.Component{
       currentUser: null,
       latitude: 0,
       longitude:0,
+      currentWeatherState: "",
+      currentTemp: "",
       clothes: [],
       shirts: [],
       pants: [],
@@ -87,7 +89,15 @@ class App extends React.Component{
       })
     })
     .then(response => response.json())
-    .then(response => console.log(response))
+    .then(response => {
+
+      // console.log(response.consolidated_weather[0])
+      
+      this.setState({
+        currentWeatherState: response.consolidated_weather[0].weather_state_name.toLowerCase(),
+        currentTemp: (response.consolidated_weather[0].the_temp * (9/5) + 32)
+      })
+    })
   }
 
   mostOccuringClothesItem = () => {

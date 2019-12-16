@@ -7,8 +7,8 @@ class AddClothes extends React.Component{
         this.state={
             name: "",
             location: "",
-            weather_category: "10",
-            temp_category: "1000",
+            weather_category: [],
+            temp_category: [],
             clothes_type: "hat",
             image: ""
         }
@@ -30,17 +30,44 @@ class AddClothes extends React.Component{
     }
     updateWeather = (event) => {
         // console.log(event.target.value)
-        this.setState({
-            weather_category: event.target.value
-        })
+
+        // console.log(this.state.weather_category)
+
+        if(this.state.weather_category.includes(event.target.value)){
+            let index = this.state.weather_category.indexOf(event.target.value);
+            if (index > -1) {
+                this.state.weather_category.splice(index, 1);
+            }
+            console.log(this.state.weather_category)
+        }else{
+
+            this.setState({
+                weather_category: [...this.state.weather_category, event.target.value]
+            },()=>{console.log(this.state.weather_category)
+            })
+
+        }
         
     }
 
     updateTemp = (event) => {
         // console.log(event.target.value)
-        this.setState({
-            temp_category: event.target.value
-        })
+
+        // console.log(this.state.temp_category)
+        if(this.state.temp_category.includes(event.target.value)){
+            let index = this.state.temp_category.indexOf(event.target.value);
+            if (index > -1) {
+            this.state.temp_category.splice(index, 1);
+            }
+            console.log(this.state.temp_category)
+        }else{
+
+            this.setState({
+                temp_category: [...this.state.temp_category, event.target.value]
+            },()=>{console.log(this.state.temp_category)
+            })
+
+        }
 
     }
     updateType = (event) => {
@@ -103,8 +130,16 @@ class AddClothes extends React.Component{
                     <input type="text" placeholder="Closet 1, Drawer 1" onChange={this.updateLocation}/>
                     
                     <br/>
-                    <label>Weather Type</label>
-                    <select onChange={this.updateWeather}>
+                    <label>Weather Type</label><br/>
+                    <input type='checkbox' value="any" onChange={this.updateTemp}/>Any Season<br/>
+                    <input type='checkbox' value="snow" onChange={this.updateTemp}/>Snow<br/>
+                    <input type='checkbox' value="sleet" onChange={this.updateTemp}/>Sleet<br/>
+                    <input type='checkbox' value="hail" onChange={this.updateTemp}/>Hail<br/>
+                    <input type='checkbox' value="rain" onChange={this.updateTemp}/>Rain<br/>
+                    <input type='checkbox' value="cloudy" onChange={this.updateTemp}/>Cloudy<br/>
+                    <input type='checkbox' value="Clear" onChange={this.updateTemp}/>Clear<br/>
+
+                    {/* <select onChange={this.updateWeather}>
                         <option value="10">Any Weather</option>
                         <option value="9">Snow</option>
                         <option value="8">Sleet</option>
@@ -116,17 +151,15 @@ class AddClothes extends React.Component{
                         <option value="2">Heavy Clouds</option>
                         <option value="1">Light Clouds</option>
                         <option value="0">Clear</option>
-                    </select>
+                    </select> */}
                     
                     <br/>
-                    <label>Season</label>
-                    <select onChange={this.updateTemp}>
-                        <option value="1000">Any Season</option>
-                        <option value="75">Summer</option>
-                        <option value="60">Spring</option>
-                        <option value="40">Fall</option>
-                        <option value="0">Winter</option>
-                    </select>
+                    <label>Seasons</label><br/>
+                    <input type='checkbox' value="any" onChange={this.updateTemp}/>Any Season<br/>
+                    <input type='checkbox' value="summer" onChange={this.updateTemp}/>Summer<br/>
+                    <input type='checkbox' value="spring" onChange={this.updateTemp}/>Spring<br/>
+                    <input type='checkbox' value="fall" onChange={this.updateTemp}/>Fall<br/>
+                    <input type='checkbox' value="winter" onChange={this.updateTemp}/>Winter<br/>
                     
                     <br/>
                     <label>Clothing Type</label>

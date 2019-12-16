@@ -78,6 +78,33 @@ class App extends React.Component{
     })
   }
 
+  deleteClothes = (object) => {
+
+    let updatedClothes = [];
+    
+    this.state.clothes.map((item)=>{
+      if(item.id !== object.id){
+        updatedClothes.push(item)
+      }
+    })
+
+    let finalArray = [...updatedClothes]
+
+    // console.log(finalArray)
+
+    this.setState({
+      clothes: finalArray
+    })
+    // console.log("updating clothes")
+  }
+
+  addClothes = (newObject) => {
+    this.setState({
+      clothes: [...this.state.clothes, newObject]
+    })
+   
+  }
+
   selectClothingItem = (clothingItem) => {
     // console.log(clothingItem)
     this.setState({
@@ -133,7 +160,7 @@ class App extends React.Component{
             {/* Update Profile */}
             <Route exact path='/updateprofile' render={()=>{
             return this.state.currentUser ? (
-              <UpdateProfile user={this.state.currentUser} logout={this.logout} updateUser={this.updateUser}/>
+              <UpdateProfile user={this.state.currentUser} updateUser={this.updateUser}/>
                 ) : (
               <Redirect to='/login' />
                 )
@@ -185,7 +212,7 @@ class App extends React.Component{
             {/* Update Clothes Item */}
             <Route exact path='/updateclothingitem' render={()=>{
             return this.state.currentUser ? (
-              <UpdateClothingItem updateClothes={this.updateClothes} selectedClothingItem={this.state.selectedClothingItem} user={this.state.currentUser}/>
+              <UpdateClothingItem deleteClothes={this.deleteClothes} updateClothes={this.updateClothes} selectedClothingItem={this.state.selectedClothingItem} user={this.state.currentUser}/>
                 ) : (
               <Redirect to='/login' />
                 )

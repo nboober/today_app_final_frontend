@@ -102,6 +102,21 @@ class UpdateClothingItem extends React.Component{
         })
     }
 
+    deleteClothes = () => {
+        console.log("deleting")
+
+        let id = this.props.selectedClothingItem.id
+
+        fetch(`http://localhost:3000/clothes/${id}`,{
+            method: 'DELETE'
+        }).then(()=>{
+            console.log("deleted item")
+            this.props.deleteClothes(this.props.selectedClothingItem)
+        }).catch(err => {
+            console.log(err)
+        })
+    }
+
 
     render(){
         // {console.log(this.props.selectedClothingItem)}
@@ -161,7 +176,9 @@ class UpdateClothingItem extends React.Component{
                     
                     <br/>
                     {/* <input type="submit" value="Update Clothing" /> */}
-                    <Link onClick={this.onSubmitForm} to="/clothescontainer">Update Clothing</Link>
+                    <Link onClick={this.onSubmitForm} to="/clothescontainer">Update</Link>
+                    <br/>
+                    <Link onClick={this.deleteClothes} to="/clothescontainer">Delete Clothing</Link>
                     
                 </form>
             </div>

@@ -28,6 +28,7 @@ class App extends React.Component{
       jewelry: [],
       mostOccuringClothesItem: 0,
       selectedClothingItem: {},
+      selectedOutfit:[],
       searchText: ""
     }
   }
@@ -94,14 +95,17 @@ class App extends React.Component{
     },()=>{
       if(user){
         this.setState({
-          clothes: user.clothes,
-          shirts: user.clothes.filter((item)=>item.clothes_type === "shirt"),
-          pants: user.clothes.filter((item)=>item.clothes_type === "pants"),
-          shoes: user.clothes.filter((item)=>item.clothes_type === "shoes"),
-          hats: user.clothes.filter((item)=>item.clothes_type === "hat"),
-          belts: user.clothes.filter((item)=>item.clothes_type === "belt"),
-          jewelry: user.clothes.filter((item)=>item.clothes_type === "jewelry")
-        },()=> this.mostOccuringClothesItem())
+          clothes: user.clothes
+        },()=>{
+          this.setState({
+            shirts: this.state.clothes.filter((item)=>item.clothes_type === "shirt"),
+            pants: this.state.clothes.filter((item)=>item.clothes_type === "pants"),
+            shoes: this.state.clothes.filter((item)=>item.clothes_type === "shoes"),
+            hats: this.state.clothes.filter((item)=>item.clothes_type === "hat"),
+            belts: this.state.clothes.filter((item)=>item.clothes_type === "belt"),
+            jewelry: this.state.clothes.filter((item)=>item.clothes_type === "jewelry")
+          },()=> this.mostOccuringClothesItem())
+        })
       }
     })
   }
@@ -122,6 +126,15 @@ class App extends React.Component{
 
     this.setState({
       clothes: finalArray
+    },()=>{
+      this.setState({
+        shirts: this.state.clothes.filter((item)=>item.clothes_type === "shirt"),
+        pants: this.state.clothes.filter((item)=>item.clothes_type === "pants"),
+        shoes: this.state.clothes.filter((item)=>item.clothes_type === "shoes"),
+        hats: this.state.clothes.filter((item)=>item.clothes_type === "hat"),
+        belts: this.state.clothes.filter((item)=>item.clothes_type === "belt"),
+        jewelry: this.state.clothes.filter((item)=>item.clothes_type === "jewelry")
+      },()=> this.mostOccuringClothesItem())
     })
     // console.log("updating clothes")
   }
@@ -148,6 +161,15 @@ class App extends React.Component{
 
     this.setState({
       clothes: finalArray
+    },()=>{
+      this.setState({
+        shirts: this.state.clothes.filter((item)=>item.clothes_type === "shirt"),
+        pants: this.state.clothes.filter((item)=>item.clothes_type === "pants"),
+        shoes: this.state.clothes.filter((item)=>item.clothes_type === "shoes"),
+        hats: this.state.clothes.filter((item)=>item.clothes_type === "hat"),
+        belts: this.state.clothes.filter((item)=>item.clothes_type === "belt"),
+        jewelry: this.state.clothes.filter((item)=>item.clothes_type === "jewelry")
+      },()=> this.mostOccuringClothesItem())
     })
     // console.log("updating clothes")
   }
@@ -155,7 +177,16 @@ class App extends React.Component{
   addClothes = (newObject) => {
     this.setState({
       clothes: [...this.state.clothes, newObject]
-    },()=> this.mostOccuringClothesItem())
+    },()=>{
+      this.setState({
+        shirts: this.state.clothes.filter((item)=>item.clothes_type === "shirt"),
+        pants: this.state.clothes.filter((item)=>item.clothes_type === "pants"),
+        shoes: this.state.clothes.filter((item)=>item.clothes_type === "shoes"),
+        hats: this.state.clothes.filter((item)=>item.clothes_type === "hat"),
+        belts: this.state.clothes.filter((item)=>item.clothes_type === "belt"),
+        jewelry: this.state.clothes.filter((item)=>item.clothes_type === "jewelry")
+      },()=> this.mostOccuringClothesItem())
+    })
    
   }
 
@@ -163,6 +194,14 @@ class App extends React.Component{
     // console.log(clothingItem)
     this.setState({
       selectedClothingItem: clothingItem
+    })
+  }
+
+  selectedOutfit = (hat, jewelery, shirt, belt, pants, shoes) => {
+    // console.log([hat, jewelery, shirt, belt, pants, shoes])
+
+    this.setState({
+      selectedOutfit: [hat, jewelery, shirt, belt, pants, shoes]
     })
   }
 
@@ -239,7 +278,9 @@ class App extends React.Component{
               shoes={this.state.shoes} 
               hats={this.state.hats} 
               belts={this.state.belts} 
-              jewelry={this.state.jewelry}/>
+              jewelry={this.state.jewelry}
+              selectedOutfit={this.selectedOutfit}
+              />
                 ) : (
               <Redirect to='/login' />
                 )
@@ -248,7 +289,7 @@ class App extends React.Component{
             {/* Outfit Show */}
             <Route exact path='/outfitshow' render={()=>{
             return this.state.currentUser ? (
-              <OutfitShow/>
+              <OutfitShow outfit={this.state.selectedOutfit} selectClothingItem={this.selectClothingItem} />
                 ) : (
               <Redirect to='/login' />
                 )

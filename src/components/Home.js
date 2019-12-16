@@ -24,6 +24,7 @@ class Home extends React.Component{
                                 belts={belts} 
                                 pants={pants} 
                                 shoes={shoes} 
+                                selectedOutfit={this.props.selectedOutfit}
                                 />
                 })}
             </div>

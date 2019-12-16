@@ -5,7 +5,7 @@ class OutfitContainer extends React.Component{
 
     render(){
         return(
-            <Link to="/outfitshow">
+            <Link to="/outfitshow" onClick={() => this.props.selectedOutfit(this.props.hats, this.props.jewelry, this.props.shirts, this.props.belts,this.props.pants, this.props.shoes)}>
                 <div style={{border: "1px solid black", width: "200px", textAlign: "center", display: "inline-block"}}>
                     <img src={this.props.hats.image} alt="belt" style={{width: "50px"}}/>
                     <br/>

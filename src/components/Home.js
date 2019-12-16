@@ -7,12 +7,7 @@ class Home extends React.Component{
     render(){
         return(
             <div>
-                <Search/>
                 <Filter/>
-                <OutfitContainer/>
-                <OutfitContainer/>
-                <OutfitContainer/>
-                <OutfitContainer/>
                 <OutfitContainer/>
             </div>
         )

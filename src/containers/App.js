@@ -20,6 +20,13 @@ class App extends React.Component{
     this.state={
       currentUser: null,
       clothes: [],
+      shirts: [],
+      pants: [],
+      shoes: [],
+      hats: [],
+      belts: [],
+      jewelry: [],
+      mostOccuringClothesItem: 0,
       selectedClothingItem: {},
       searchText: ""
     }
@@ -39,6 +46,47 @@ class App extends React.Component{
     }
   }
 
+  mostOccuringClothesItem = () => {
+
+    let shirt_length = this.state.shirts.length
+    let pants_length = this.state.pants.length
+    let hats_length = this.state.hats.length
+    let belts_length = this.state.belts.length
+    let shoes_length = this.state.shoes.length
+    let jewelry_length = this.state.jewelry.length
+
+    let max = 0;
+
+    if(shirt_length > max){
+      max = shirt_length
+    }
+    
+    if(pants_length > max){
+      max = pants_length
+    }
+    
+    if(hats_length > max){
+      max = hats_length
+    }
+    
+    if(belts_length > max){
+      max = belts_length
+    }
+    
+    if(shoes_length > max){
+      max = shoes_length
+    }
+    
+    if(jewelry_length > max){
+      max = jewelry_length
+    }
+    
+    this.setState({
+      mostOccuringClothesItem: max
+    })
+
+}
+
   updateUser = (user) => {
     // console.log(user)
     this.setState({
@@ -46,8 +94,14 @@ class App extends React.Component{
     },()=>{
       if(user){
         this.setState({
-          clothes: user.clothes
-        })
+          clothes: user.clothes,
+          shirts: user.clothes.filter((item)=>item.clothes_type === "shirt"),
+          pants: user.clothes.filter((item)=>item.clothes_type === "pants"),
+          shoes: user.clothes.filter((item)=>item.clothes_type === "shoes"),
+          hats: user.clothes.filter((item)=>item.clothes_type === "hat"),
+          belts: user.clothes.filter((item)=>item.clothes_type === "belt"),
+          jewelry: user.clothes.filter((item)=>item.clothes_type === "jewelry")
+        },()=> this.mostOccuringClothesItem())
       }
     })
   }
@@ -75,7 +129,7 @@ class App extends React.Component{
   addClothes = (newObject) => {
     this.setState({
       clothes: [...this.state.clothes, newObject]
-    })
+    },()=> this.mostOccuringClothesItem())
   }
 
   deleteClothes = (object) => {
@@ -101,7 +155,7 @@ class App extends React.Component{
   addClothes = (newObject) => {
     this.setState({
       clothes: [...this.state.clothes, newObject]
-    })
+    },()=> this.mostOccuringClothesItem())
    
   }
 

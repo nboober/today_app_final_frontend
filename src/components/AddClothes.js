@@ -138,20 +138,6 @@ class AddClothes extends React.Component{
                     <input type='checkbox' value="rain" onChange={this.updateTemp}/>Rain<br/>
                     <input type='checkbox' value="cloudy" onChange={this.updateTemp}/>Cloudy<br/>
                     <input type='checkbox' value="Clear" onChange={this.updateTemp}/>Clear<br/>
-
-                    {/* <select onChange={this.updateWeather}>
-                        <option value="10">Any Weather</option>
-                        <option value="9">Snow</option>
-                        <option value="8">Sleet</option>
-                        <option value="7">Hail</option>
-                        <option value="6">Thunderstorms</option>
-                        <option value="5">Heavy Rain</option>
-                        <option value="4">Light Rain</option>
-                        <option value="3">Showers</option>
-                        <option value="2">Heavy Clouds</option>
-                        <option value="1">Light Clouds</option>
-                        <option value="0">Clear</option>
-                    </select> */}
                     
                     <br/>
                     <label>Seasons</label><br/>

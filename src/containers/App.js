@@ -102,36 +102,41 @@ class App extends React.Component{
 
   filterClothesByWeather = () => {
 
-    let weatherStateInt = 0;
-    let currentWeather = this.state.currentWeatherState
+    let weatherState = "";
+    let season = "";
 
-    if(currentWeather === "snow"){
-      weatherStateInt = 9
-    }else if(currentWeather === "sleet"){
-      weatherStateInt = 8
-    }else if(currentWeather === "hail"){
-      weatherStateInt = 7
-    }else if(currentWeather === "thunderstorm"){
-      weatherStateInt = 6
-    }else if(currentWeather === "heavy rain"){
-      weatherStateInt = 5
-    }else if(currentWeather === "light rain"){
-      weatherStateInt = 4
-    }else if(currentWeather === "showers"){
-      weatherStateInt = 3
-    }else if(currentWeather === "heavy cloud"){
-      weatherStateInt = 2
-    }else if(currentWeather === "light cloud"){
-      weatherStateInt = 1
-    }else if(currentWeather === "clear"){
-      weatherStateInt = 0
+    let currentWeather = this.state.currentWeatherState
+    let currentTemp = this.state.currentTemp
+
+    if(currentWeather === "Thunderstorm"){
+      weatherState = "rain"
+    }else if(currentWeather === "Heavy Rain"){
+      weatherState = "rain"
+    }else if(currentWeather === "Light Rain"){
+      weatherState = "rain"
+    }else if(currentWeather === "Showers"){
+      weatherState = "rain"
+    }else if(currentWeather === "Heavy Cloud"){
+      weatherState = "cloudy"
+    }else if(currentWeather === "Light Cloud"){
+      weatherState = "cloudy"
     }
+
+    if(currentTemp < 40){
+      season = "winter"
+    }else if(currentTemp >= 40 && currentTemp < 60){
+      season = "fall"
+    }else if(currentTemp >= 60 && currentTemp < 75){
+      season = "spring"
+    }else if(currentTemp >= 75){
+      season = "summer"
+    } 
 
     // console.log(weatherStateInt)
 
     this.setState({
       clothes: this.state.clothes.filter((item)=>{
-        return item.weather_category > weatherStateInt && item.temp_category <= this.state.currentTemp
+        return item.weather_category.includes(weatherState) || item.weather_category.includes(this.state.currentWeatherState) || item.weather_category.includes("any") && item.temp_category.includes(season) || item.temp_category.includes("any")
       })
     },()=>{
       this.setState({

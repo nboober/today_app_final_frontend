@@ -121,7 +121,7 @@ class AddClothes extends React.Component{
                     <br/>
                     <label>Season</label>
                     <select onChange={this.updateTemp}>
-                        <option value="1000">Any Season</option>
+                        <option value="0">Any Season</option>
                         <option value="75">Summer</option>
                         <option value="60">Spring</option>
                         <option value="40">Fall</option>

@@ -96,8 +96,44 @@ class App extends React.Component{
       this.setState({
         currentWeatherState: response.consolidated_weather[0].weather_state_name.toLowerCase(),
         currentTemp: (response.consolidated_weather[0].the_temp * (9/5) + 32)
-      })
+      },() => {this.filterClothesByWeather()})
     })
+  }
+
+  filterClothesByWeather = () => {
+
+    let weatherStateInt = 0;
+    let currentWeather = this.state.currentWeatherState
+
+    if(currentWeather === "snow"){
+      weatherStateInt = 9
+    }else if(currentWeather === "sleet"){
+      weatherStateInt = 8
+    }else if(currentWeather === "hail"){
+      weatherStateInt = 7
+    }else if(currentWeather === "thunderstorm"){
+      weatherStateInt = 6
+    }else if(currentWeather === "heavy rain"){
+      weatherStateInt = 5
+    }else if(currentWeather === "light rain"){
+      weatherStateInt = 4
+    }else if(currentWeather === "showers"){
+      weatherStateInt = 3
+    }else if(currentWeather === "heavy cloud"){
+      weatherStateInt = 2
+    }else if(currentWeather === "light cloud"){
+      weatherStateInt = 1
+    }else if(currentWeather === "clear"){
+      weatherStateInt = 0
+    }
+
+    // console.log(weatherStateInt)
+
+    this.setState({
+      clothes: this.state.clothes.filter((item)=>{
+        return item.weather_category > weatherStateInt && item.temp_category <= this.state.currentTemp
+      })
+    },()=>{console.log(this.state.clothes)})
   }
 
   mostOccuringClothesItem = () => {

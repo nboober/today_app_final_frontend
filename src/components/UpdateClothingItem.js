@@ -219,7 +219,7 @@ class UpdateClothingItem extends React.Component{
                     
                     <br/>
                     <label>Weather Type</label><br/>
-                    <input id="anyWeather" type='checkbox' value="any" onChange={this.updateWeather}/>Any Season<br/>
+                    <input id="anyWeather" type='checkbox' value="any" onChange={this.updateWeather}/>Any Weather Condition<br/>
                     <input id="snow" type='checkbox' value="snow" onChange={this.updateWeather}/>Snow<br/>
                     <input id="sleet" type='checkbox' value="sleet" onChange={this.updateWeather}/>Sleet<br/>
                     <input id="hail" type='checkbox' value="hail" onChange={this.updateWeather}/>Hail<br/>
@@ -230,10 +230,10 @@ class UpdateClothingItem extends React.Component{
                     <br/>
                     <label>Seasons</label><br/>
                     <input id="anySeason" type='checkbox' value="any" onChange={this.updateTemp}/>Any Season<br/>
-                    <input id="summer" type='checkbox' value="summer" onChange={this.updateTemp}/>Summer<br/>
-                    <input id="spring" type='checkbox' value="spring" onChange={this.updateTemp}/>Spring<br/>
-                    <input id="fall" type='checkbox' value="fall" onChange={this.updateTemp}/>Fall<br/>
-                    <input id="winter" type='checkbox' value="winter" onChange={this.updateTemp}/>Winter<br/>
+                    <input id="summer" type='checkbox' value="summer" onChange={this.updateTemp}/>Summer (75˚ or Higher)<br/>
+                    <input id="spring" type='checkbox' value="spring" onChange={this.updateTemp}/>Spring (60˚ to 75˚)<br/>
+                    <input id="fall" type='checkbox' value="fall" onChange={this.updateTemp}/>Fall (40˚ to 60˚)<br/>
+                    <input id="winter" type='checkbox' value="winter" onChange={this.updateTemp}/>Winter (40˚ or lower)<br/>
                     
                     <br/>
                     <label>Clothing Type</label>

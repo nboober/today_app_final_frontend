@@ -18,8 +18,8 @@ class UpdateClothingItem extends React.Component{
         this.setState({
             name: this.props.selectedClothingItem.name,
             location: this.props.selectedClothingItem.location,
-            weather_category: this.props.selectedClothingItem.weather_category,
-            temp_category: this.props.selectedClothingItem.temp_category,
+            weather_category: this.props.selectedClothingItem.weather_category.split(","),
+            temp_category: this.props.selectedClothingItem.temp_category.split(","),
             clothes_type: this.props.selectedClothingItem.clothes_type,
             image: this.props.selectedClothingItem.image
         },()=>{this.checkCheckBoxes()})
@@ -172,8 +172,8 @@ class UpdateClothingItem extends React.Component{
                 clothe: {
                     name: this.state.name,
                     location: this.state.location,
-                    weather_category: this.state.weather_category,
-                    temp_category: this.state.temp_category,
+                    weather_category: this.state.weather_category.join(","),
+                    temp_category: this.state.temp_category.join(","),
                     clothes_type: this.state.clothes_type,
                     image: this.state.image,
                     user_id: this.props.user.id

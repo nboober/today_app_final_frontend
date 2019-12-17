@@ -108,17 +108,17 @@ class App extends React.Component{
     let currentWeather = this.state.currentWeatherState
     let currentTemp = this.state.currentTemp
 
-    if(currentWeather === "Thunderstorm"){
+    if(currentWeather === "thunderstorm"){
       weatherState = "rain"
-    }else if(currentWeather === "Heavy Rain"){
+    }else if(currentWeather === "heavy rain"){
       weatherState = "rain"
-    }else if(currentWeather === "Light Rain"){
+    }else if(currentWeather === "light rain"){
       weatherState = "rain"
-    }else if(currentWeather === "Showers"){
+    }else if(currentWeather === "showers"){
       weatherState = "rain"
-    }else if(currentWeather === "Heavy Cloud"){
+    }else if(currentWeather === "heavy cloud"){
       weatherState = "cloudy"
-    }else if(currentWeather === "Light Cloud"){
+    }else if(currentWeather === "light cloud"){
       weatherState = "cloudy"
     }
 
@@ -136,7 +136,8 @@ class App extends React.Component{
 
     this.setState({
       clothes: this.state.clothes.filter((item)=>{
-        return item.weather_category.includes(weatherState) || item.weather_category.includes(this.state.currentWeatherState) || item.weather_category.includes("any") && item.temp_category.includes(season) || item.temp_category.includes("any")
+        // console.log(item.temp_category)
+        return item.weather_category.split(",").includes("any") && item.temp_category.split(",").includes("any")
       })
     },()=>{
       this.setState({

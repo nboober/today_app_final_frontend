@@ -101,8 +101,8 @@ class AddClothes extends React.Component{
                 clothe: {
                     name: this.state.name,
                     location: this.state.location,
-                    weather_category: parseInt(this.state.weather_category),
-                    temp_category: parseInt(this.state.temp_category),
+                    weather_category: this.state.weather_category.join(","),
+                    temp_category: this.state.temp_category.join(","),
                     clothes_type: this.state.clothes_type,
                     image: this.state.image,
                     user_id: this.props.user.id

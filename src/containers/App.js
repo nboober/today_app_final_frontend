@@ -137,7 +137,7 @@ class App extends React.Component{
     this.setState({
       clothes: this.state.clothes.filter((item)=>{
         // console.log(item.temp_category)
-        return item.weather_category.split(",").includes("any") && item.temp_category.split(",").includes("any")
+        return item.weather_category.split(",").includes("any") || item.weather_category.split(",").includes(weatherState) || item.weather_category.split(",").includes(this.state.currentWeatherState) && item.temp_category.split(",").includes("any") || item.temp_category.split(",").includes(season)
       })
     },()=>{
       this.setState({

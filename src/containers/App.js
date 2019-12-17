@@ -97,7 +97,8 @@ class App extends React.Component{
       this.setState({
         currentWeatherState: response.consolidated_weather[0].weather_state_name.toLowerCase(),
         currentTemp: (response.consolidated_weather[0].the_temp * (9/5) + 32)
-      },() => {this.filterClothesByWeather()})
+      },() => {
+        this.filterClothesByWeather()})
     })
   }
 
@@ -121,7 +122,16 @@ class App extends React.Component{
       weatherState = "cloudy"
     }else if(currentWeather === "light cloud"){
       weatherState = "cloudy"
+    }else if(currentWeather === "snow"){
+      weatherState = "snow"
+    }else if(currentWeather === "sleet"){
+      weatherState = "sleet"
+    }else if(currentWeather === "hail"){
+      weatherState = "hail"
+    }else if(currentWeather === "clear"){
+      weatherState = "clear"
     }
+
 
     if(currentTemp < 40){
       season = "winter"
@@ -133,13 +143,18 @@ class App extends React.Component{
       season = "summer"
     } 
 
-    // console.log(weatherStateInt)
+    let filterclothesBySeason = this.state.clothes.filter((item)=>{
+      return item.temp_category.split(",").includes("any") ||
+        item.temp_category.split(",").includes(season)
+    })
+    
+    let filterclothesByWeather = filterclothesBySeason.filter((item)=>{
+      return item.weather_category.split(",").includes("any") ||
+      item.weather_category.split(",").includes(weatherState)
+    })
 
     this.setState({
-      clothes: this.state.clothes.filter((item)=>{
-        // console.log(item.temp_category)
-        return item.weather_category.split(",").includes("any") || item.weather_category.split(",").includes(weatherState) || item.weather_category.split(",").includes(this.state.currentWeatherState) && item.temp_category.split(",").includes("any") || item.temp_category.split(",").includes(season)
-      })
+      clothes: filterclothesByWeather
     },()=>{
       this.setState({
         shirts: this.state.clothes.filter((item)=>item.clothes_type === "shirt"),
@@ -383,7 +398,7 @@ class App extends React.Component{
                 searchText={this.state.searchText}
                 selectClothingItem={this.selectClothingItem} 
                 clothes={this.state.allUserClothes.filter((item)=>{
-                  return item.name.includes(this.state.searchText)
+                  return item.name.toLowerCase().includes(this.state.searchText.toLowerCase())
                 })}
               />
                 ) : (

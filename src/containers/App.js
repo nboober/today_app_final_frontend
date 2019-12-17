@@ -22,8 +22,8 @@ class App extends React.Component{
       allUserClothes: [],
       latitude: 0,
       longitude:0,
-      currentWeatherState: "",
-      currentTemp: "",
+      currentWeatherState: null,
+      currentTemp: null,
       clothes: [],
       shirts: [],
       pants: [],
@@ -39,19 +39,20 @@ class App extends React.Component{
   }
 
   componentDidMount = () => {
-    if(localStorage.getItem('jwt')){
-      fetch('http://localhost:3000/profile',{
-        headers: {
-          "Authorization": localStorage.getItem('jwt')
-        }
-      }).then(response => response.json())
-      .then(user => {
-        // console.log(user)
-        this.updateUser(user)
-      })
-    }
-
     this.getGeoLocation()
+
+    // if(localStorage.getItem('jwt')){
+    //   fetch('http://localhost:3000/profile',{
+    //     headers: {
+    //       "Authorization": localStorage.getItem('jwt')
+    //     }
+    //   }).then(response => response.json())
+    //   .then(user => {
+    //     // console.log(user)
+    //     this.updateUser(user)
+    //   })
+    // }
+
 
   }
 
@@ -98,6 +99,9 @@ class App extends React.Component{
         currentWeatherState: response.consolidated_weather[0].weather_state_name.toLowerCase(),
         currentTemp: (response.consolidated_weather[0].the_temp * (9/5) + 32)
       },() => {
+        if(localStorage.getItem('jwt')){
+          this.fetchSignedInUser()
+        }
         this.filterClothesByWeather()})
     })
   }
@@ -110,7 +114,9 @@ class App extends React.Component{
     let currentWeather = this.state.currentWeatherState
     let currentTemp = this.state.currentTemp
 
-    if(currentWeather === "thunderstorm"){
+    if(currentWeather === null){
+      weatherState = null
+    }else if(currentWeather === "thunderstorm"){
       weatherState = "rain"
     }else if(currentWeather === "heavy rain"){
       weatherState = "rain"
@@ -133,7 +139,9 @@ class App extends React.Component{
     }
 
 
-    if(currentTemp < 40){
+    if(currentTemp === null){
+      season = null
+    }else if(currentTemp < 40){
       season = "winter"
     }else if(currentTemp >= 40 && currentTemp < 60){
       season = "fall"
@@ -141,18 +149,17 @@ class App extends React.Component{
       season = "spring"
     }else if(currentTemp >= 75){
       season = "summer"
-    } 
+    }
 
     let filterclothesBySeason = this.state.clothes.filter((item)=>{
-      return item.temp_category.split(",").includes("any") ||
-        item.temp_category.split(",").includes(season)
+      return item.temp_category.split(",").includes(season) || item.temp_category.split(",").includes("any")
     })
-    
+        
     let filterclothesByWeather = filterclothesBySeason.filter((item)=>{
       return item.weather_category.split(",").includes("any") ||
       item.weather_category.split(",").includes(weatherState)
     })
-
+    
     this.setState({
       clothes: filterclothesByWeather
     },()=>{
@@ -207,6 +214,20 @@ class App extends React.Component{
     })
 
 }
+
+  fetchSignedInUser = () => {
+
+      fetch('http://localhost:3000/profile',{
+        headers: {
+          "Authorization": localStorage.getItem('jwt')
+        }
+      }).then(response => response.json())
+      .then(user => {
+        // console.log(user)
+        this.updateUser(user)
+      })
+
+  }
 
   updateUser = (user) => {
     // console.log(user)

@@ -28,7 +28,7 @@ class UpdateClothingItem extends React.Component{
     checkCheckBoxes = () => {
 
         let weather = this.state.weather_category;
-        let temp = this.state.temp_category
+        let temp = this.state.temp_category;
 
         if(temp.includes("any")){
             document.getElementById("anySeason").checked = true
@@ -225,7 +225,7 @@ class UpdateClothingItem extends React.Component{
                     <input id="hail" type='checkbox' value="hail" onChange={this.updateWeather}/>Hail<br/>
                     <input id="rain" type='checkbox' value="rain" onChange={this.updateWeather}/>Rain<br/>
                     <input id="cloudy" type='checkbox' value="cloudy" onChange={this.updateWeather}/>Cloudy<br/>
-                    <input id="clear" type='checkbox' value="Clear" onChange={this.updateWeather}/>Clear<br/>
+                    <input id="clear" type='checkbox' value="clear" onChange={this.updateWeather}/>Clear<br/>
                     
                     <br/>
                     <label>Seasons</label><br/>

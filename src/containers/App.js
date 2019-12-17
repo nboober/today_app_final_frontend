@@ -19,6 +19,7 @@ class App extends React.Component{
     super()
     this.state={
       currentUser: null,
+      allUserClothes: [],
       latitude: 0,
       longitude:0,
       currentWeatherState: "",
@@ -199,6 +200,7 @@ class App extends React.Component{
     },()=>{
       if(user){
         this.setState({
+          allUserClothes: user.clothes,
           clothes: user.clothes
         },()=>{
           this.filterClothesByWeather()
@@ -222,7 +224,8 @@ class App extends React.Component{
     // console.log(finalArray)
 
     this.setState({
-      clothes: finalArray
+      clothes: finalArray,
+      allUserClothes: finalArray
     },()=>{
       this.filterClothesByWeather()
     })
@@ -259,7 +262,8 @@ class App extends React.Component{
 
   addClothes = (newObject) => {
     this.setState({
-      clothes: [...this.state.clothes, newObject]
+      clothes: [...this.state.clothes, newObject],
+      allUserClothes: [...this.state.clothes, newObject]
     },()=>{
       this.filterClothesByWeather()
     })
@@ -378,7 +382,7 @@ class App extends React.Component{
                 search={this.search} 
                 searchText={this.state.searchText}
                 selectClothingItem={this.selectClothingItem} 
-                clothes={this.state.clothes.filter((item)=>{
+                clothes={this.state.allUserClothes.filter((item)=>{
                   return item.name.includes(this.state.searchText)
                 })}
               />

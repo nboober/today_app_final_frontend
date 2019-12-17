@@ -404,7 +404,11 @@ class App extends React.Component{
             {/* Outfit Show */}
             <Route exact path='/outfitshow' render={()=>{
               return this.state.currentUser ? (
-                <OutfitShow outfit={this.state.selectedOutfit} selectClothingItem={this.selectClothingItem} />
+                <OutfitShow 
+                  outfit={this.state.selectedOutfit} 
+                  selectClothingItem={this.selectClothingItem} 
+                  
+                    />
                 ) : (
                   <Redirect to='/login' />
                   )

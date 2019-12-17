@@ -1,4 +1,5 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/App.css';
 import {Route, Switch, Redirect} from 'react-router-dom';
 import Nav from '../components/Nav'
@@ -12,6 +13,7 @@ import OutfitShow from '../components/OutfitShow';
 import ClothesContainer from '../containers/ClothesContainer';
 import UpdateClothingItem from '../components/UpdateClothingItem';
 import NotFound from '../components/NotFound'
+import Loading from '../components/Loading'
 
 
 class App extends React.Component{
@@ -41,17 +43,9 @@ class App extends React.Component{
   componentDidMount = () => {
     this.getGeoLocation()
 
-    // if(localStorage.getItem('jwt')){
-    //   fetch('http://localhost:3000/profile',{
-    //     headers: {
-    //       "Authorization": localStorage.getItem('jwt')
-    //     }
-    //   }).then(response => response.json())
-    //   .then(user => {
-    //     // console.log(user)
-    //     this.updateUser(user)
-    //   })
-    // }
+    if(localStorage.getItem('jwt')){
+      console.log("Please wait... Logging in")
+    }
 
 
   }
@@ -337,7 +331,12 @@ class App extends React.Component{
         {/* Switch Routes */}
         <Switch>
 
+            {/* Spinner */}
+            {/* <Route exact path="/loading" component={Loading}/> */}
+
             {/* Login */}
+            {/* {localStorage.getItem('jwt') && this.state.currentUser === null ? 
+            <Redirect to="/loading" /> :  */}
             <Route exact path='/login' render={()=>{
               return this.state.currentUser ? (
                 <Redirect to='/profile' user={this.state.currentUser}/>
@@ -347,6 +346,7 @@ class App extends React.Component{
                 />
               )
             }}/>
+          {/* } */}
 
             {/* Register */}
             <Route exact path='/register' render={()=>{
@@ -356,6 +356,7 @@ class App extends React.Component{
                 <Register updateUser={this.updateUser}/>
                 )
               }} />
+
 
             {/* Profile */}
             <Route exact path='/profile' render={()=>{

@@ -14,7 +14,7 @@ class Nav extends React.Component{
             <div>
                 
                 {this.props.user ? (
-                    <NavLink to="/">Home</NavLink> 
+                    <NavLink to="/">Clothes for Today</NavLink> 
                     ):(null)}
 
                 {this.props.user ? (

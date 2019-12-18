@@ -12,6 +12,7 @@ class Home extends React.Component{
                 {_.times(this.props.max, (index) => {
                     let hats = this.props.hats[index] ? this.props.hats[index] : this.props.hats[0]
                     let jewelry = this.props.jewelry[index] ? this.props.jewelry[index] : this.props.jewelry[0]
+                    let jackets = this.props.jackets[index] ? this.props.jackets[index] : this.props.jackets[0]
                     let shirts = this.props.shirts[index] ? this.props.shirts[index] : this.props.shirts[0]
                     let belts = this.props.belts[index] ? this.props.belts[index] : this.props.belts[0]
                     let pants = this.props.pants[index] ? this.props.pants[index] : this.props.pants[0]
@@ -21,6 +22,7 @@ class Home extends React.Component{
                                 key={index}
                                 hats={hats} 
                                 jewelry={jewelry}
+                                jackets={jackets}
                                 shirts={shirts}
                                 belts={belts} 
                                 pants={pants} 

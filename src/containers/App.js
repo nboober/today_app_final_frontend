@@ -28,6 +28,7 @@ class App extends React.Component{
       currentTemp: null,
       backgroundImage: '',
       clothes: [],
+      jackets: [],
       shirts: [],
       pants: [],
       shoes: [],
@@ -178,6 +179,7 @@ class App extends React.Component{
     },()=>{
       this.setState({
         shirts: this.state.clothes.filter((item)=>item.clothes_type === "shirt"),
+        jackets: this.state.clothes.filter((item)=>item.clothes_type === "jacket"),
         pants: this.state.clothes.filter((item)=>item.clothes_type === "pants"),
         shoes: this.state.clothes.filter((item)=>item.clothes_type === "shoes"),
         hats: this.state.clothes.filter((item)=>item.clothes_type === "hat"),
@@ -190,6 +192,7 @@ class App extends React.Component{
   mostOccuringClothesItem = () => {
 
     let shirt_length = this.state.shirts.length
+    let jacket_length = this.state.jackets.length
     let pants_length = this.state.pants.length
     let hats_length = this.state.hats.length
     let belts_length = this.state.belts.length
@@ -200,6 +203,10 @@ class App extends React.Component{
 
     if(shirt_length > max){
       max = shirt_length
+    }
+
+    if(jacket_length > max){
+      max = jacket_length
     }
     
     if(pants_length > max){
@@ -326,11 +333,11 @@ class App extends React.Component{
     })
   }
 
-  selectedOutfit = (hat, jewelery, shirt, belt, pants, shoes) => {
+  selectedOutfit = (hat, jewelery, jacket, shirt, belt, pants, shoes) => {
     // console.log([hat, jewelery, shirt, belt, pants, shoes])
 
     this.setState({
-      selectedOutfit: [hat, jewelery, shirt, belt, pants, shoes]
+      selectedOutfit: [hat, jewelery, jacket, shirt, belt, pants, shoes]
     })
   }
 
@@ -412,6 +419,7 @@ class App extends React.Component{
                 <Home 
                 max={this.state.mostOccuringClothesItem} 
                 shirts={this.state.shirts} 
+                jackets={this.state.jackets} 
                 pants={this.state.pants} 
                 shoes={this.state.shoes} 
                 hats={this.state.hats} 
@@ -431,6 +439,7 @@ class App extends React.Component{
                   outfit={this.state.selectedOutfit} 
                   selectClothingItem={this.selectClothingItem} 
                   shirts={this.state.shirts}
+                  jackets={this.state.jackets}
                   pants={this.state.pants}
                   shoes={this.state.shoes}
                   hats={this.state.hats}

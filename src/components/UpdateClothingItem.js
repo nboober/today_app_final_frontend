@@ -240,10 +240,10 @@ class UpdateClothingItem extends React.Component{
                     <select onChange={this.updateType} value={this.state.clothes_type}>
                         <option value="hat">Hat</option>
                         <option value="jewelry">Jewelry</option>
+                        <option value="jacket">Jacket</option>
                         <option value="shirt">Shirt</option>
                         <option value="belt">Belt</option>
                         <option value="pants">Pants</option>
-                        <option value="dress">Dress</option>
                         <option value="shoes">Shoes</option>
                     </select>
                     

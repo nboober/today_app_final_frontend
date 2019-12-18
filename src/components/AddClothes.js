@@ -154,10 +154,10 @@ class AddClothes extends React.Component{
                     <select onChange={this.updateType}>
                         <option value="hat">Hat</option>
                         <option value="jewelry">Jewelry</option>
+                        <option value="jacket">Jacket</option>
                         <option value="shirt">Shirt</option>
                         <option value="belt">Belt</option>
                         <option value="pants">Pants</option>
-                        <option value="dress">Dress</option>
                         <option value="shoes">Shoes</option>
                     </select>
                     

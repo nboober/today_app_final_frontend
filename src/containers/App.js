@@ -26,6 +26,7 @@ class App extends React.Component{
       longitude:0,
       currentWeatherState: null,
       currentTemp: null,
+      backgroundImage: '',
       clothes: [],
       shirts: [],
       pants: [],
@@ -93,6 +94,7 @@ class App extends React.Component{
         currentWeatherState: response.consolidated_weather[0].weather_state_name.toLowerCase(),
         currentTemp: (response.consolidated_weather[0].the_temp * (9/5) + 32)
       },() => {
+
         if(localStorage.getItem('jwt')){
           this.fetchSignedInUser()
         }
@@ -104,6 +106,13 @@ class App extends React.Component{
 
     let weatherState = "";
     let season = "";
+    let background = "";
+
+    let rain_sleet = 'https://media3.giphy.com/media/t7Qb8655Z1VfBGr5XB/giphy.gif'
+    let sunny = 'https://media.giphy.com/media/vadsqiBwAM18c/giphy.gif'
+    let cloudy = 'https://media.giphy.com/media/3o7rc6sa2RvKo8K5EI/giphy.gif'
+    let snow = 'https://media.giphy.com/media/7Bgpw7PwdxoDC/giphy.gif'
+    let hail = 'https://media.giphy.com/media/xTiTnGmU99wLFvZBfy/giphy.gif'
 
     let currentWeather = this.state.currentWeatherState
     let currentTemp = this.state.currentTemp
@@ -112,26 +121,35 @@ class App extends React.Component{
       weatherState = null
     }else if(currentWeather === "thunderstorm"){
       weatherState = "rain"
+      background = rain_sleet
     }else if(currentWeather === "heavy rain"){
       weatherState = "rain"
+      background = rain_sleet
     }else if(currentWeather === "light rain"){
       weatherState = "rain"
+      background = rain_sleet
     }else if(currentWeather === "showers"){
       weatherState = "rain"
+      background = rain_sleet
     }else if(currentWeather === "heavy cloud"){
       weatherState = "cloudy"
+      background = cloudy
     }else if(currentWeather === "light cloud"){
       weatherState = "cloudy"
+      background = cloudy
     }else if(currentWeather === "snow"){
       weatherState = "snow"
+      background = snow
     }else if(currentWeather === "sleet"){
       weatherState = "sleet"
+      background = rain_sleet
     }else if(currentWeather === "hail"){
       weatherState = "hail"
+      background = hail
     }else if(currentWeather === "clear"){
       weatherState = "clear"
+      background = sunny
     }
-
 
     if(currentTemp === null){
       season = null
@@ -155,7 +173,8 @@ class App extends React.Component{
     })
     
     this.setState({
-      clothes: filterclothesByWeather
+      clothes: filterclothesByWeather,
+      backgroundImage: background
     },()=>{
       this.setState({
         shirts: this.state.clothes.filter((item)=>item.clothes_type === "shirt"),
@@ -324,7 +343,8 @@ class App extends React.Component{
 
   render(){
     return (
-      <>
+      <div style={{backgroundImage: `url(${this.state.backgroundImage})`, backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",backgroundSize: "cover", height: "100vh"}}>
         {/* Nav Bar */}
         <Nav user={this.state.currentUser} logout={this.logout} updateUser={this.updateUser}/>
         
@@ -445,7 +465,7 @@ class App extends React.Component{
             {/* Error 404 */}
             <Route component={NotFound} />
         </Switch>
-      </>
+      </div>
     )
   }
 }

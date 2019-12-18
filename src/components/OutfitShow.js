@@ -18,7 +18,8 @@ class OutfitShow extends React.Component{
             })
         })
         .then(response => response.json())
-        .then(data => {
+        .then(data => {console.log(data)
+
             this.props.outfit.map((item)=>{
                 fetch("http://localhost:3000/outfit_clothes", {
                     method: "POST",
@@ -36,6 +37,7 @@ class OutfitShow extends React.Component{
                 .then(res => res.json())
                 .then(combo => console.log(combo))
             })
+
         })
     }
 

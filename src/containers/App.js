@@ -164,29 +164,30 @@ class App extends React.Component{
       season = "summer"
     }
 
-    let filterclothesBySeason = this.state.clothes.filter((item)=>{
-      return item.temp_category.split(",").includes(season) || item.temp_category.split(",").includes("any")
-    })
-        
-    let filterclothesByWeather = filterclothesBySeason.filter((item)=>{
-      return item.weather_category.split(",").includes("any") ||
-      item.weather_category.split(",").includes(weatherState)
-    })
-    
-    this.setState({
-      clothes: filterclothesByWeather,
-      backgroundImage: background
-    },()=>{
+      let filterclothesBySeason = this.state.clothes.filter((item)=>{
+        return item.temp_category.split(",").includes(season) || item.temp_category.split(",").includes("any")
+      })
+          
+      let filterclothesByWeather = filterclothesBySeason.filter((item)=>{
+        return item.weather_category.split(",").includes("any") ||
+        item.weather_category.split(",").includes(weatherState)
+      })
+
+      
       this.setState({
-        shirts: this.state.clothes.filter((item)=>item.clothes_type === "shirt"),
-        jackets: this.state.clothes.filter((item)=>item.clothes_type === "jacket"),
-        pants: this.state.clothes.filter((item)=>item.clothes_type === "pants"),
-        shoes: this.state.clothes.filter((item)=>item.clothes_type === "shoes"),
-        hats: this.state.clothes.filter((item)=>item.clothes_type === "hat"),
-        belts: this.state.clothes.filter((item)=>item.clothes_type === "belt"),
-        jewelry: this.state.clothes.filter((item)=>item.clothes_type === "jewelry")
-      },()=> this.mostOccuringClothesItem())
-    })
+        clothes: filterclothesByWeather,
+        backgroundImage: background
+      },()=>{
+        this.setState({
+          shirts: this.state.clothes.filter((item)=>item.clothes_type === "shirt"),
+          jackets: this.state.clothes.filter((item)=>item.clothes_type === "jacket"),
+          pants: this.state.clothes.filter((item)=>item.clothes_type === "pants"),
+          shoes: this.state.clothes.filter((item)=>item.clothes_type === "shoes"),
+          hats: this.state.clothes.filter((item)=>item.clothes_type === "hat"),
+          belts: this.state.clothes.filter((item)=>item.clothes_type === "belt"),
+          jewelry: this.state.clothes.filter((item)=>item.clothes_type === "jewelry")
+        },()=> this.mostOccuringClothesItem())
+      })
   }
 
   mostOccuringClothesItem = () => {
@@ -445,6 +446,7 @@ class App extends React.Component{
                   hats={this.state.hats}
                   belts={this.state.belts}
                   jewelry={this.state.jewelry}
+                  user={this.state.currentUser}
                     />
                 ) : (
                   <Redirect to='/login' />

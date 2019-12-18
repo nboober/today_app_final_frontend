@@ -23,6 +23,7 @@ class App extends React.Component{
     this.state={
       currentUser: null,
       outfits: [],
+      favoriteOutfitId: "",
       allUserClothes: [],
       latitude: 0,
       longitude:0,
@@ -337,10 +338,11 @@ class App extends React.Component{
     })
   }
 
-  selectedOutfit = (hat, jewelery, jacket, shirt, belt, pants, shoes) => {
+  selectedOutfit = (outfit_id, hat, jewelery, jacket, shirt, belt, pants, shoes) => {
     // console.log([hat, jewelery, shirt, belt, pants, shoes])
 
     this.setState({
+      favoriteOutfitId: outfit_id,
       selectedOutfit: [hat, jewelery, jacket, shirt, belt, pants, shoes]
     })
   }
@@ -462,6 +464,7 @@ class App extends React.Component{
             <Route exact path='/favoriteoutfitshow' render={()=>{
               return this.state.currentUser ? (
                 <FavoriteOutfitShow 
+                  id={this.state.favoriteOutfitId}
                   outfit={this.state.selectedOutfit} 
                   selectClothingItem={this.selectClothingItem} 
                   shirts={this.state.shirts}

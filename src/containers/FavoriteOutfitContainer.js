@@ -69,7 +69,7 @@ class FavoriteOutfitContainer extends React.Component{
         let shoes = this.state.shoes ? <img src={this.state.shoes.image} alt="shoes" style={{width: "50px"}}/> : <img src="https://cdn3.iconfinder.com/data/icons/modifiers-essential/48/v-34-512.png" alt="no image" style={{width: "50px"}}/>
         
         return(
-            <Link to="/favoriteoutfitshow" onClick={() => this.props.selectedOutfit(this.state.hat, this.state.jewelry, this.state.jacket, this.state.shirt, this.state.belt,this.state.pants, this.state.shoes)}>
+            <Link to="/favoriteoutfitshow" onClick={() => this.props.selectedOutfit(this.props.outfit.id, this.state.hat, this.state.jewelry, this.state.jacket, this.state.shirt, this.state.belt,this.state.pants, this.state.shoes)}>
                 <div style={{border: "1px solid black", width: "200px", textAlign: "center", display: "inline-block"}}>
                     {hat}
                     <br/>

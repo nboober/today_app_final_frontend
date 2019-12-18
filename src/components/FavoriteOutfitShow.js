@@ -41,6 +41,18 @@ class FavoriteOutfitShow extends React.Component{
         })
     }
 
+    delete = () => {
+        let id = this.props.id
+
+        fetch(`http://localhost:3000/outfits/${id}`,{
+            method: 'DELETE'
+        }).then(()=>{
+            console.log("deleted item")
+        }).catch(err => {
+            console.log(err)
+        })
+    }
+
     render(){
         {console.log(this.props.outfit)}
         return(
@@ -55,7 +67,7 @@ class FavoriteOutfitShow extends React.Component{
                 <OutfitShowItem selectClothingItem={this.props.selectClothingItem} clothingItem={this.props.outfit[6]} type={this.props.shoes}/>
 
                 <Link to="/" onClick={this.favorite}>Favorite</Link>
-                <Link to="/profile" >Delete</Link>
+                <Link to="/profile" onClick={this.delete}>Delete</Link>
 
             </div>
         )

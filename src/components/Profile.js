@@ -6,34 +6,48 @@ class Profile extends React.Component{
     render(){
         return(
             <div>
-                <h2>
-                    {this.props.user.firstname}'s Profile
-                </h2>
+                <div style={{float: "left"}}>
+                    <h2>
+                        {this.props.user.firstname}'s Profile
+                    </h2>
 
-                <img src={this.props.user.avatar} alt="profile image" />
-                <br/>
+                    <img src={this.props.user.avatar} alt="profile image" />
+                    <br/>
 
-                <p>
-                    {this.props.user.firstname}
-                </p>
+                    <p>
+                        {this.props.user.firstname}
+                    </p>
 
-                <p>
-                    {this.props.user.lastname}
-                </p>
+                    <p>
+                        {this.props.user.lastname}
+                    </p>
 
-                <p>
-                    {this.props.user.username}
-                </p>
-                <Link to="/updateprofile" >Update Profile</Link>
-                <br/>
-                <Link to="/addclothes" >Add Clothes</Link>
-                <br/>
-                <Link to="/clothescontainer" >Update Clothes</Link>
-                <br/>
+                    <p>
+                        {this.props.user.username}
+                    </p>
+                    <Link to="/updateprofile" >Update Profile</Link>
+                    <br/>
+                    <Link to="/addclothes" >Add Clothes</Link>
+                    <br/>
+                    <Link to="/clothescontainer" >Update Clothes</Link>
+                </div>
 
-                <h2>
-                    My Favorite Outfits
-                </h2>
+                <div style={{float: "right"}}>
+                    <h2>
+                        My Favorite Outfits
+                        <br/>
+                        <OutfitContainer 
+                                // key={index}
+                                // hats={hats} 
+                                // jewelry={jewelry}
+                                // shirts={shirts}
+                                // belts={belts} 
+                                // pants={pants} 
+                                // shoes={shoes} 
+                                // selectedOutfit={this.props.selectedOutfit}
+                                />
+                    </h2>
+                </div>
 
             </div>
         )

@@ -10,6 +10,7 @@ import UpdateProfile from '../components/UpdateProfile';
 import AddClothes from '../components/AddClothes';
 import Home from '../components/Home'
 import OutfitShow from '../components/OutfitShow';
+import FavoriteOutfitShow from '../components/FavoriteOutfitShow';
 import ClothesContainer from '../containers/ClothesContainer';
 import UpdateClothingItem from '../components/UpdateClothingItem';
 import NotFound from '../components/NotFound'
@@ -21,6 +22,7 @@ class App extends React.Component{
     super()
     this.state={
       currentUser: null,
+      outfits: [],
       allUserClothes: [],
       latitude: 0,
       longitude:0,
@@ -258,7 +260,8 @@ class App extends React.Component{
       if(user){
         this.setState({
           allUserClothes: user.clothes,
-          clothes: user.clothes
+          clothes: user.clothes,
+          outfits: user.outfits
         },()=>{
           this.filterClothesByWeather()
         })
@@ -390,7 +393,9 @@ class App extends React.Component{
             {/* Profile */}
             <Route exact path='/profile' render={()=>{
             return this.state.currentUser ? (
-              <Profile user={this.state.currentUser}/>
+              <Profile user={this.state.currentUser} 
+                        selectedOutfit={this.selectedOutfit}
+                        outfits={this.state.outfits}/>
                 ) : (
               <Redirect to='/login' />
                 )
@@ -437,6 +442,26 @@ class App extends React.Component{
             <Route exact path='/outfitshow' render={()=>{
               return this.state.currentUser ? (
                 <OutfitShow 
+                  outfit={this.state.selectedOutfit} 
+                  selectClothingItem={this.selectClothingItem} 
+                  shirts={this.state.shirts}
+                  jackets={this.state.jackets}
+                  pants={this.state.pants}
+                  shoes={this.state.shoes}
+                  hats={this.state.hats}
+                  belts={this.state.belts}
+                  jewelry={this.state.jewelry}
+                  user={this.state.currentUser}
+                    />
+                ) : (
+                  <Redirect to='/login' />
+                  )
+                }} />
+            
+            {/* Favorite Outfit Show */}
+            <Route exact path='/favoriteoutfitshow' render={()=>{
+              return this.state.currentUser ? (
+                <FavoriteOutfitShow 
                   outfit={this.state.selectedOutfit} 
                   selectClothingItem={this.selectClothingItem} 
                   shirts={this.state.shirts}

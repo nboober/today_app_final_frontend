@@ -1,11 +1,11 @@
 import React from 'react'
-import OutfitContainer from '../containers/OutfitContainer'
+import FavoriteOutfitContainer from '../containers/FavoriteOutfitContainer'
 import {Link} from 'react-router-dom';
 
 class Profile extends React.Component{
     render(){
         return(
-            <div>
+            <div style={{overflowY: "scroll"}}>
                 <div style={{float: "left"}}>
                     <h2>
                         {this.props.user.firstname}'s Profile
@@ -32,21 +32,24 @@ class Profile extends React.Component{
                     <Link to="/clothescontainer" >Update Clothes</Link>
                 </div>
 
-                <div style={{float: "right"}}>
+                <div style={{width: "50%", float: "right"}}>
                     <h2>
                         My Favorite Outfits
-                        <br/>
-                        <OutfitContainer 
-                                // key={index}
-                                // hats={hats} 
-                                // jewelry={jewelry}
-                                // shirts={shirts}
-                                // belts={belts} 
-                                // pants={pants} 
-                                // shoes={shoes} 
-                                // selectedOutfit={this.props.selectedOutfit}
-                                />
                     </h2>
+                        <br/>
+                        <div>
+
+                        {this.props.outfits ? (this.props.outfits.map((outfit)=>{
+                            
+                                return <FavoriteOutfitContainer 
+                                        key={outfit.id}
+                                        outfit={outfit}
+                                        selectedOutfit={this.props.selectedOutfit}
+                                        />
+                        })) : null
+                    }
+                        </div>
+                        
                 </div>
 
             </div>

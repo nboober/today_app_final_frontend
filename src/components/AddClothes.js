@@ -144,11 +144,11 @@ class AddClothes extends React.Component{
                     <br/>
                     <label>Seasons</label><br/>
                     <input type='checkbox' value="any" onChange={this.updateTemp}/>Any Season<br/>
-                    <input type='checkbox' value="summer" onChange={this.updateTemp}/>Summer<br/>
-                    <input type='checkbox' value="spring" onChange={this.updateTemp}/>Spring<br/>
-                    <input type='checkbox' value="fall" onChange={this.updateTemp}/>Fall<br/>
-                    <input type='checkbox' value="winter" onChange={this.updateTemp}/>Winter<br/>
-                    
+                    <input type='checkbox' value="summer" onChange={this.updateTemp}/>Summer (75˚ or Higher)<br/>
+                    <input type='checkbox' value="spring" onChange={this.updateTemp}/>Spring (60˚ to 75˚)<br/>
+                    <input type='checkbox' value="fall" onChange={this.updateTemp}/>Fall (40˚ to 60˚)<br/>
+                    <input type='checkbox' value="winter" onChange={this.updateTemp}/>Winter (40˚ or lower)<br/>
+
                     <br/>
                     <label>Clothing Type</label>
                     <select onChange={this.updateType}>

@@ -351,10 +351,14 @@ class App extends React.Component{
         {/* Switch Routes */}
         <Switch>
 
+            {/* {localStorage.getItem('jwt') && this.state.currentUser === null ? 
+            <Redirect to="/loading" /> : <Redirect to="/profile" />
+            } */}
+
+            {/* Spinner */}
+            {/* <Route exact path="/loading" component={Loading}/> */}
 
             {/* Login */}
-            {/* {localStorage.getItem('jwt') && this.state.currentUser === null ? 
-            <Redirect to="/loading" /> :  */}
             <Route exact path='/login' render={()=>{
               return this.state.currentUser ? (
                 <Redirect to='/profile' user={this.state.currentUser}/>
@@ -364,7 +368,6 @@ class App extends React.Component{
                   />
                   )
                 }}/>
-          {/* } */}
 
             {/* Register */}
             <Route exact path='/register' render={()=>{
@@ -463,10 +466,8 @@ class App extends React.Component{
                   <Redirect to='/login' />
                   )
                 }} />
-                
-            {/* Spinner */}
-            {/* <Route exact path="/loading" component={Loading}/> */}
 
+                
             {/* Error 404 */}
             <Route component={NotFound} />
         </Switch>

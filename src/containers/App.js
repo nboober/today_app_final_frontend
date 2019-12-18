@@ -427,7 +427,12 @@ class App extends React.Component{
                 <OutfitShow 
                   outfit={this.state.selectedOutfit} 
                   selectClothingItem={this.selectClothingItem} 
-                  
+                  shirts={this.state.shirts}
+                  pants={this.state.pants}
+                  shoes={this.state.shoes}
+                  hats={this.state.hats}
+                  belts={this.state.belts}
+                  jewelry={this.state.jewelry}
                     />
                 ) : (
                   <Redirect to='/login' />

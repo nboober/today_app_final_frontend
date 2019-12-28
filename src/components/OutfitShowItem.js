@@ -2,6 +2,26 @@ import React from 'react'
 import _ from 'lodash';
 
 class OutfitShowItem extends React.Component{
+    constructor(){
+        super()
+        this.state={
+            id: "",
+            item: {}
+        }
+    }
+
+    componentDidMount = () => {
+        this.setState({
+            id: this.props.type[0].clothes_type
+        },()=>{console.log(this.state.id)})
+    }
+
+    clothingChange = () => {
+        let id = document.getElementById(this.state.id).childNodes[1].childNodes[1].firstChild.innerText
+
+        this.props.clothingChange(id, this.state.id)
+    }
+
     render(){
         // {console.log(this.props.type)}
         return(
@@ -15,7 +35,7 @@ class OutfitShowItem extends React.Component{
                 </ol>
                 <div className="carousel-inner" >
 
-                    <div className="carousel-item active">
+                    <div className="carousel-item active" >
                         <img className="d-block w-100" src={this.props.clothingItem.image} alt={this.props.clothingItem.name}/>
                         <div className="carousel-caption d-none d-md-block">
                             <h5>{this.props.clothingItem.name}</h5>
@@ -24,9 +44,10 @@ class OutfitShowItem extends React.Component{
                     </div>
 
                 {this.props.type.map(item => {
-                    // console.log(item)
-                    return  <div key={item.name} className="carousel-item">
-                                <img className="d-block w-100" src={item.image} alt={item.name}/>
+                    console.log(item)
+                    return  <div key={item.name} className="carousel-item" >
+                                <div style={{opacity: "0"}}>{item.id}</div>
+                                <img className="d-block w-100" src={item.image} alt={item.name} />
                                 <div className="carousel-caption d-none d-md-block">
                                     <h5>{item.name}</h5>
                                     <p>{item.location}</p>
@@ -35,11 +56,11 @@ class OutfitShowItem extends React.Component{
                 })}
                     
                 </div>
-                <a className="carousel-control-prev" href={'#' + this.props.clothingItem.clothes_type} role="button" data-slide="prev">
+                <a className="carousel-control-prev" href={'#' + this.props.clothingItem.clothes_type} onClick={this.clothingChange} role="button" data-slide="prev">
                     <span className="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span className="sr-only">Previous</span>
                 </a>
-                <a className="carousel-control-next" href={'#' + this.props.clothingItem.clothes_type} role="button" data-slide="next">
+                <a className="carousel-control-next" href={'#' + this.props.clothingItem.clothes_type} onClick={this.clothingChange} role="button" data-slide="next">
                     <span className="carousel-control-next-icon" aria-hidden="true"></span>
                     <span className="sr-only">Next</span>
                 </a>

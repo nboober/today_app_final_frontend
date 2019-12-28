@@ -11,20 +11,34 @@ class Nav extends React.Component{
     
     render() {
         return(
-            <div>
-                
-                {this.props.user ? (
-                    <NavLink to="/">Clothes for Today</NavLink> 
-                    ):(null)}
+           
+// navbar
+<div class="pos-f-t">
+  <div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-dark p-4">
+      {/* <h4 class="text-white">Collapsed content</h4>
+      <span class="text-muted">Toggleable via the navbar brand.</span> */}
+        {this.props.user ? (
+            <NavLink to="/"><p>Clothes for Today</p></NavLink>
+            ):(null)}
 
-                {this.props.user ? (
-                    <NavLink to="/profile" name="Profile">Profile</NavLink> 
-                    ):(null)}
-                
-                {this.props.user ? (
-                    <NavLink to="/login" name="Logout" onClick={this.logout} >Logout</NavLink>
-                    ):(null)}
-            </div>
+        {this.props.user ? (
+            <NavLink to="/profile" name="Profile"><p>Profile</p></NavLink>
+            ):(null)}
+        
+        {this.props.user ? (
+            <NavLink to="/login" name="Logout" onClick={this.logout} ><p>Logout</p></NavLink>
+            ):(null)}
+    </div>
+  </div>
+  <nav class="navbar navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </nav>
+</div>
+
+
         )
     }
 }

@@ -3,6 +3,68 @@ import OutfitShowItem from './OutfitShowItem'
 import { Link } from "react-router-dom"
 
 class OutfitShow extends React.Component{
+    constructor(){
+        super()
+        this.state={
+            hat:{},
+            jewelry:{},
+            jacket:{},
+            shirt:{},
+            belt:{},
+            pants:{},
+            shoes:{},
+            outfit:[]
+        }
+    }
+
+    componentDidMount = () => {
+        this.setState({
+            hat: this.props.outfit[0],
+            jewelry: this.props.outfit[1],
+            jacket: this.props.outfit[2],
+            shirt: this.props.outfit[3],
+            belt: this.props.outfit[4],
+            pants: this.props.outfit[5],
+            shoes: this.props.outfit[6],
+            outfit:[]
+        })
+    }
+
+    clothingChange = (item, type) => {
+        console.log("item changed")
+        console.log(item)
+        console.log("clothing type " + type)
+
+        let array = [];
+
+        if(type === "hat"){
+            array = this.props.hats
+        }
+        if(type === "jewelry"){
+            array = this.props.jewelry
+        }
+        if(type === "jacket"){
+            array = this.props.jackets
+        }
+        if(type === "shirt"){
+            array = this.props.shirts
+        }
+        if(type === "belt"){
+            array = this.props.belts
+        }
+        if(type === "pants"){
+            array = this.props.pants
+        }
+        if(type === "shoes"){
+            array = this.props.shoes
+        }
+
+        let newItem = array.filter((item)=>{
+            return item.id == parseInt(item)
+        })
+        console.log(array)
+
+    }
 
     favorite = () => {
         console.log("favorited")
@@ -46,13 +108,13 @@ class OutfitShow extends React.Component{
         return(
             <div>
                 <h2>Your Outfit</h2>
-                <OutfitShowItem selectClothingItem={this.props.selectClothingItem} clothingItem={this.props.outfit[0]} type={this.props.hats}/>
-                <OutfitShowItem selectClothingItem={this.props.selectClothingItem} clothingItem={this.props.outfit[1]} type={this.props.jewelry}/>
-                <OutfitShowItem selectClothingItem={this.props.selectClothingItem} clothingItem={this.props.outfit[2]} type={this.props.jackets}/>
-                <OutfitShowItem selectClothingItem={this.props.selectClothingItem} clothingItem={this.props.outfit[3]} type={this.props.shirts}/>
-                <OutfitShowItem selectClothingItem={this.props.selectClothingItem} clothingItem={this.props.outfit[4]} type={this.props.belts}/>
-                <OutfitShowItem selectClothingItem={this.props.selectClothingItem} clothingItem={this.props.outfit[5]} type={this.props.pants}/>
-                <OutfitShowItem selectClothingItem={this.props.selectClothingItem} clothingItem={this.props.outfit[6]} type={this.props.shoes}/>
+                <OutfitShowItem clothingChange={this.clothingChange} selectClothingItem={this.props.selectClothingItem} clothingItem={this.state.hat} type={this.props.hats}/>
+                <OutfitShowItem clothingChange={this.clothingChange} selectClothingItem={this.props.selectClothingItem} clothingItem={this.state.jewelry} type={this.props.jewelry}/>
+                <OutfitShowItem clothingChange={this.clothingChange} selectClothingItem={this.props.selectClothingItem} clothingItem={this.state.jacket} type={this.props.jackets}/>
+                <OutfitShowItem clothingChange={this.clothingChange} selectClothingItem={this.props.selectClothingItem} clothingItem={this.state.shirt} type={this.props.shirts}/>
+                <OutfitShowItem clothingChange={this.clothingChange} selectClothingItem={this.props.selectClothingItem} clothingItem={this.state.belt} type={this.props.belts}/>
+                <OutfitShowItem clothingChange={this.clothingChange} selectClothingItem={this.props.selectClothingItem} clothingItem={this.state.pants} type={this.props.pants}/>
+                <OutfitShowItem clothingChange={this.clothingChange} selectClothingItem={this.props.selectClothingItem} clothingItem={this.state.shoes} type={this.props.shoes}/>
 
                 <Link to="/" onClick={this.favorite}>Favorite</Link>
 

@@ -68,6 +68,7 @@ class OutfitShow extends React.Component{
 
     favorite = () => {
         console.log("favorited")
+        let id = "";
 
         fetch("http://localhost:3000/outfits", {
             method: 'POST',
@@ -97,10 +98,22 @@ class OutfitShow extends React.Component{
                     })
                 })
                 .then(res => res.json())
-                .then(combo => console.log(combo))
+                .then(combo => {
+                    console.log(combo);
+                    id = data.id;
+                    // console.log(id)
+                })
+                this.updateClothes(id)
             })
-
+            
         })
+
+    }
+
+    updateClothes = (id) => {
+        fetch(`http://localhost:3000/outfits/${id}`)
+            .then(response => response.json())
+            .then(newOutfit => this.props.updateUserClothes(newOutfit))
     }
 
     render(){

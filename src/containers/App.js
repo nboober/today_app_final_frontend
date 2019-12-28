@@ -347,6 +347,13 @@ class App extends React.Component{
     })
   }
 
+  updateUserClothes = (arrayOfOutfits) => {
+    // console.log(object)
+    this.setState({
+      outfits: arrayOfOutfits
+    })
+  }
+
   search = (event) => {
     // console.log(event.target.value)
     this.setState({
@@ -454,6 +461,7 @@ class App extends React.Component{
                   belts={this.state.belts}
                   jewelry={this.state.jewelry}
                   user={this.state.currentUser}
+                  updateUserClothes={this.updateUserClothes}
                     />
                 ) : (
                   <Redirect to='/login' />
@@ -475,6 +483,7 @@ class App extends React.Component{
                   belts={this.state.belts}
                   jewelry={this.state.jewelry}
                   user={this.state.currentUser}
+                  updateUserClothes={this.updateUserClothes}
                     />
                 ) : (
                   <Redirect to='/login' />

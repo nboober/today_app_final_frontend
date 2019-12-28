@@ -139,7 +139,7 @@ class App extends React.Component{
       weatherState = "cloudy"
       background = cloudy
     }else if(currentWeather === "light cloud"){
-      weatherState = "cloudy"
+      weatherState = "clear"
       background = cloudy
     }else if(currentWeather === "snow"){
       weatherState = "snow"

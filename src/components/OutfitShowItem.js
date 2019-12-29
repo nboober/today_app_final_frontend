@@ -6,6 +6,7 @@ class OutfitShowItem extends React.Component{
         super()
         this.state={
             id: "",
+            index: 0,
             item: {}
         }
     }
@@ -17,9 +18,28 @@ class OutfitShowItem extends React.Component{
     }
 
     clothingChange = () => {
-        let id = document.getElementById(this.state.id).childNodes[1].childNodes[1].firstChild.innerText
+        // let id = document.getElementById(this.state.id).childNodes[1].childNodes[1].firstChild.innerText
 
-        this.props.clothingChange(id, this.state.id)
+        let index = this.state.index;
+        
+        let array = [this.props.clothingItem, this.props.type].flat()
+        
+        
+        // console.log(array)
+        
+        
+        
+        index++;
+        if(index >= array.length){
+            index = 0;
+        }
+        
+        this.setState({
+            index: index
+        })
+        
+        // console.log(array[index])
+        this.props.clothingChange(array[index], this.state.id)
     }
 
     render(){
@@ -44,7 +64,7 @@ class OutfitShowItem extends React.Component{
                     </div>
 
                 {this.props.type.map(item => {
-                    console.log(item)
+                    // console.log(item)
                     return  <div key={item.name} className="carousel-item" >
                                 <div style={{opacity: "0"}}>{item.id}</div>
                                 <img className="d-block w-100" src={item.image} alt={item.name} />

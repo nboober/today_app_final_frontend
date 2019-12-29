@@ -35,38 +35,62 @@ class OutfitShow extends React.Component{
         console.log(item)
         console.log("clothing type " + type)
 
-        let array = [];
-
         if(type === "hat"){
-            array = this.props.hats
+            this.setState({
+                hat: item
+            },()=>{this.updateOutfit()})
         }
         if(type === "jewelry"){
-            array = this.props.jewelry
+            this.setState({
+                jewelry: item
+            },()=>{this.updateOutfit()})
         }
         if(type === "jacket"){
-            array = this.props.jackets
+            this.setState({
+                jacket: item
+            },()=>{this.updateOutfit()})
         }
         if(type === "shirt"){
-            array = this.props.shirts
+            this.setState({
+                shirt: item
+            },()=>{this.updateOutfit()})
         }
         if(type === "belt"){
-            array = this.props.belts
+            this.setState({
+                belt: item
+            },()=>{this.updateOutfit()})
         }
         if(type === "pants"){
-            array = this.props.pants
+            this.setState({
+                pants: item
+            },()=>{this.updateOutfit()})
         }
         if(type === "shoes"){
-            array = this.props.shoes
+            this.setState({
+                shoes: item
+            },()=>{this.updateOutfit()})
         }
 
-        let newItem = array.filter((item)=>{
-            return item.id == parseInt(item)
-        })
-        console.log(array)
+        // console.log(array)
 
     }
 
+    updateOutfit = () => {
+        this.setState({
+            outfit: [this.state.hat, 
+                    this.state.jewelry, 
+                    this.state.jacket, 
+                    this.state.shirt, 
+                    this.state.belt, 
+                    this.state.pants, 
+                    this.state.shoes]
+        },()=>{console.log(this.state.outfit)})
+    }
+
     favorite = () => {
+
+        
+
         console.log("favorited")
         let id = "";
 
@@ -83,7 +107,7 @@ class OutfitShow extends React.Component{
         .then(response => response.json())
         .then(data => {console.log(data)
 
-            this.props.outfit.map((item)=>{
+            this.state.outfit.map((item)=>{
                 fetch("http://localhost:3000/outfit_clothes", {
                     method: "POST",
                     headers: {

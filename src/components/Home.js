@@ -8,7 +8,7 @@ class Home extends React.Component{
         return(
             <div >
                 <h2>My Outfits</h2>
-                <Filter/>
+                {/* <Filter/> */}
                 {_.times(this.props.max, (index) => {
                     let hats = this.props.hats[index] ? this.props.hats[index] : this.props.hats[0]
                     let jewelry = this.props.jewelry[index] ? this.props.jewelry[index] : this.props.jewelry[0]

@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 class Profile extends React.Component{
     render(){
         return(
-            <div style={{overflowY: "scroll"}}>
+            <div>
                 <div style={{float: "left", 
                             border: "1px solid black", 
                             height: "90vh", 

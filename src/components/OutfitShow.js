@@ -26,7 +26,15 @@ class OutfitShow extends React.Component{
             belt: this.props.outfit[4],
             pants: this.props.outfit[5],
             shoes: this.props.outfit[6],
-            outfit:[]
+            outfit:[
+                this.props.outfit[0],
+                this.props.outfit[1],
+                this.props.outfit[2],
+                this.props.outfit[3],
+                this.props.outfit[4],
+                this.props.outfit[5],
+                this.props.outfit[6]
+            ]
         })
     }
 
@@ -145,7 +153,7 @@ class OutfitShow extends React.Component{
         return(
             <div>
                 <h2 style={{color: "white"}}>Your Outfit</h2>
-                
+
                 <Link to="/" className="btn btn-primary" onClick={this.favorite}>Favorite</Link>
                 <br/>
 

@@ -6,30 +6,36 @@ class Profile extends React.Component{
     render(){
         return(
             <div style={{overflowY: "scroll"}}>
-                <div style={{float: "left"}}>
-                    <h2>
+                <div style={{float: "left", 
+                            border: "1px solid white", 
+                            height: "90vh", 
+                            width: "25%",
+                            background: "#000000",
+                            opacity: "0.6",
+                            }}>
+                    <h2 style={{color: "white"}}>
                         {this.props.user.firstname}'s Profile
                     </h2>
 
-                    <img src={this.props.user.avatar} alt="profile image" />
+                    <img style={{width: "100%"}} src={this.props.user.avatar} alt="profile image" />
                     <br/>
 
-                    <p>
-                        {this.props.user.firstname}
-                    </p>
+                    <h3 style={{color: "white", textAlign: "center"}}>
+                        First Name: {this.props.user.firstname}
+                    </h3>
 
-                    <p>
-                        {this.props.user.lastname}
-                    </p>
+                    <h3 style={{color: "white", textAlign: "center"}}>
+                        Last Name: {this.props.user.lastname}
+                    </h3>
 
-                    <p>
-                        {this.props.user.username}
-                    </p>
-                    <Link to="/updateprofile" >Update Profile</Link>
+                    <h3 style={{color: "white", textAlign: "center"}}>
+                        username: {this.props.user.username}
+                    </h3>
+                    <Link style={{fontSize: "32px"}} to="/updateprofile" >Update Profile</Link>
                     <br/>
-                    <Link to="/addclothes" >Add Clothes</Link>
+                    <Link style={{fontSize: "32px"}} to="/addclothes" >Add Clothes</Link>
                     <br/>
-                    <Link to="/clothescontainer" >Update Clothes</Link>
+                    <Link style={{fontSize: "32px"}} to="/clothescontainer" >Update Clothes</Link>
                 </div>
 
                 <div style={{width: "50%", float: "right"}}>

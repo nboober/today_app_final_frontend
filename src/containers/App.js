@@ -393,7 +393,7 @@ class App extends React.Component{
             {/* Register */}
             <Route exact path='/register' render={()=>{
               return this.state.currentUser ? (
-              <Redirect to='/' />
+              <Redirect to='/profile' user={this.state.currentUser} />
               ) : (
                 <Register updateUser={this.updateUser}/>
                 )

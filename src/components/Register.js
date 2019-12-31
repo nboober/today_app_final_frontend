@@ -76,40 +76,39 @@ class Register extends React.Component{
     render(){
         return(
             <div>
-                <Link to="/login">Login</Link>
 
-                <br/>
-                <br/>
+                <form style={{width: "75%", margin: "0 auto"}} onSubmit={this.handleRegisterSubmit}>
+                <Link style={{fontSize: "28px"}} to="/login">Login</Link>
 
-                Register
-                <br/>
-                <br/>
+                <h2 style={{color: "white"}}>Register</h2>
 
-                <form onSubmit={this.handleRegisterSubmit}>
-
-                <label>Username</label>
-                <input type="text" value={this.state.username} onChange={this.handleUsernameChange} name='username' placeholder='username'/>
-                <br/>
-
-                <label>Password</label>
-                <input type="password" value={this.state.password} onChange={this.handlePasswordChange} name='password' placeholder='password'/>
-                <br/>
-
-                <label>First Name</label>
-                <input type="text" value={this.state.firstname} onChange={this.handleFirstnameChange} name='firstname' placeholder='firstname'/>
-                <br/>
-
-                <label>Last Name</label>
-                <input type="text" value={this.state.lastname} onChange={this.handleLastnameChange} name='lastname' placeholder='lastname'/>
-                <br/>
-
-                <label>Avatar</label>
-                <input type="text" value={this.state.avatar} onChange={this.handleAvatarChange} name='avatar' placeholder='avatar'/>
-                <br/>
-
-                <input type="text" type='submit' value='Register'/>
-
+                    <div className="form-row">
+                        <div className="form-group col-md-6">
+                        <label style={{color: "white"}} for="username">Username</label>
+                        <input value={this.state.username} onChange={this.handleUsernameChange} type="text" className="form-control" id="username" placeholder="Username"/>
+                        </div>
+                        <div className="form-group col-md-6">
+                        <label style={{color: "white"}} for="password">Password</label>
+                        <input value={this.state.password} onChange={this.handlePasswordChange} type="password" className="form-control" id="password" placeholder="Password"/>
+                        </div>
+                    </div>
+                    <div className="form-group">
+                        <label style={{color: "white"}} for="firstname">First Name</label>
+                        <input value={this.state.firstname} onChange={this.handleFirstnameChange} type="text" className="form-control" id="firstname" placeholder="First Name"/>
+                    </div>
+                    <div className="form-group">
+                        <label style={{color: "white"}} for="lastname">Last Name</label>
+                        <input value={this.state.lastname} onChange={this.handleLastnameChange} type="text" className="form-control" id="lastname" placeholder="Last Name"/>
+                    </div>
+                    <div className="form-row">
+                        <div className="form-group col-md-6">
+                        <label style={{color: "white"}} for="avatar">Avatar Image</label>
+                        <input value={this.state.avatar} onChange={this.handleAvatarChange} type="text" className="form-control" id="avatar" placeholder="https://shirtsofcotton.com/en/media/catalog/product/cache/10/image/1200x1200/9df78eab33525d08d6e5fb8d27136e95/s/h/shirtsofcotton-t-shirt-v-neck-navy-soc-020159-front-1200px.jpg"/>
+                        </div>
+                    </div>
+                    <input className="btn btn-primary" type="text" type='submit' value='Register'/>
                 </form>
+
             </div>
         )
     }

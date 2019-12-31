@@ -67,16 +67,6 @@ class Login extends React.Component{
         return(
             <div>
 
-                {/* <form onSubmit={this.handleLoginSubmit}>
-
-                    <input onChange={this.handleUsernameChange} value={this.state.username} name='username' type='username' placeholder='username'/>
-                    <input onChange={this.handlePasswordChange} value={this.state.password} name='password' type='password' placeholder='password'/>
-                    <input type='submit' value='Login'/>
-
-
-                </form> */}
-
-
                 <form style={{paddingTop: "15%", width: "75%", margin: "0 auto"}} onSubmit={this.handleLoginSubmit}>
                 <h1 style={{color: "white"}}>Welcome to Today</h1>
                     <div className="row">

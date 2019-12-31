@@ -132,7 +132,6 @@ class UpdateProfile extends React.Component{
                         </div>
                     </div>
                     <Link className="btn btn-primary" onClick={this.updateUserInfo} to="/profile">Update</Link>
-                    {/* <input className="btn btn-primary" type="text" type='submit' value='Update'/> */}
                     <br/>
                     <Link onClick={this.deleteUser} to="/login">Delete Profile</Link>
 

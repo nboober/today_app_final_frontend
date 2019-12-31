@@ -31,11 +31,11 @@ class Profile extends React.Component{
                     <h3 style={{color: "white", textAlign: "center"}}>
                         username: {this.props.user.username}
                     </h3>
-                    <Link style={{fontSize: "32px"}} to="/updateprofile" >Update Profile</Link>
+                    <Link style={{fontSize: "20px", marginTop: "10%"}} className="btn btn-primary" to="/updateprofile" >Update Profile</Link>
                     <br/>
-                    <Link style={{fontSize: "32px"}} to="/addclothes" >Add Clothes</Link>
+                    <Link style={{fontSize: "20px", marginTop: "10%"}} className="btn btn-primary" to="/addclothes" >Add Clothes</Link>
                     <br/>
-                    <Link style={{fontSize: "32px"}} to="/clothescontainer" >Update Clothes</Link>
+                    <Link style={{fontSize: "20px", marginTop: "10%"}} className="btn btn-primary" to="/clothescontainer" >Update Clothes</Link>
                 </div>
 
                 <div style={{width: "50%", float: "right"}}>

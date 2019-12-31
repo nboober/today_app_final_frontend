@@ -120,9 +120,9 @@ class AddClothes extends React.Component{
 
     render(){
         return(
-            <div>
-                <h2>Add Clothes</h2>
-                <form onSubmit={this.onSubmitForm}>
+            <div style={{color: "white"}}>
+                <form onSubmit={this.onSubmitForm} style={{width: "75%", margin: "2% auto",background: "#000000", opacity: "0.6"}}>
+                <h2 style={{color: "white"}}>Add Clothes</h2>
 
                     <br/>
                     <label>Name</label>
@@ -168,7 +168,7 @@ class AddClothes extends React.Component{
                     
                     <br/>
                     {/* <input type="submit" value="Add Clothing"/> */}
-                    <Link onClick={this.onSubmitForm} to="/clothescontainer">Add Clothing</Link>
+                    <Link className="btn btn-primary" onClick={this.onSubmitForm} to="/clothescontainer">Add Clothing</Link>
 
                     
                 </form>

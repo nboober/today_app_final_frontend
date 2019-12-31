@@ -102,37 +102,39 @@ class UpdateProfile extends React.Component{
     render(){
         return(
             <div>
-                <br/>
-                <h2>Update Profile</h2>
-                <br/>
-                <br/>
-                <form>
 
-                    <label>Username</label>
-                    <input type="text" value={this.state.username} onChange={this.handleUsernameChange} name='username' placeholder='username'/>
-                    <br/>
+                <form style={{width: "75%", margin: "5% auto",background: "#000000", opacity: "0.6"}}>
 
-                    <label>Password</label>
-                    <input type="password" value={this.state.password} onChange={this.handlePasswordChange} name='password' placeholder='password'/>
-                    <br/>
+                <h2 style={{color: "white"}}>Update Profile</h2>
 
-                    <label>First Name</label>
-                    <input type="text" value={this.state.firstname} onChange={this.handleFirstnameChange} name='firstname' placeholder='firstname'/>
-                    <br/>
-
-                    <label>Last Name</label>
-                    <input type="text" value={this.state.lastname} onChange={this.handleLastnameChange} name='lastname' placeholder='lastname'/>
-                    <br/>
-
-                    <label>Avatar</label>
-                    <input type="text" value={this.state.avatar} onChange={this.handleAvatarChange} name='avatar' placeholder='avatar'/>
-                    <br/>
-
-                    {/* <input type='submit' value='Update'/> */}
-                    <Link onClick={this.updateUserInfo} to="/profile">Update</Link>
+                    <div className="form-row">
+                        <div className="form-group col-md-6">
+                        <label style={{color: "white"}} for="username">Username</label>
+                        <input value={this.state.username} onChange={this.handleUsernameChange} type="text" className="form-control" id="username" placeholder="Username"/>
+                        </div>
+                        <div className="form-group col-md-6">
+                        <label style={{color: "white"}} for="password">Password</label>
+                        <input value={this.state.password} onChange={this.handlePasswordChange} type="password" className="form-control" id="password" placeholder="Password"/>
+                        </div>
+                    </div>
+                    <div className="form-group">
+                        <label style={{color: "white"}} for="firstname">First Name</label>
+                        <input value={this.state.firstname} onChange={this.handleFirstnameChange} type="text" className="form-control" id="firstname" placeholder="First Name"/>
+                    </div>
+                    <div className="form-group">
+                        <label style={{color: "white"}} for="lastname">Last Name</label>
+                        <input value={this.state.lastname} onChange={this.handleLastnameChange} type="text" className="form-control" id="lastname" placeholder="Last Name"/>
+                    </div>
+                    <div className="form-row">
+                        <div className="form-group col-md-6">
+                        <label style={{color: "white"}} for="avatar">Avatar Image</label>
+                        <input value={this.state.avatar} onChange={this.handleAvatarChange} type="text" className="form-control" id="avatar" placeholder="https://shirtsofcotton.com/en/media/catalog/product/cache/10/image/1200x1200/9df78eab33525d08d6e5fb8d27136e95/s/h/shirtsofcotton-t-shirt-v-neck-navy-soc-020159-front-1200px.jpg"/>
+                        </div>
+                    </div>
+                    <Link className="btn btn-primary" onClick={this.updateUserInfo} to="/profile">Update</Link>
+                    {/* <input className="btn btn-primary" type="text" type='submit' value='Update'/> */}
                     <br/>
                     <Link onClick={this.deleteUser} to="/login">Delete Profile</Link>
-
 
                 </form>
             </div>

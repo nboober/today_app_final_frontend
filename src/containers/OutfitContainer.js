@@ -13,7 +13,7 @@ class OutfitContainer extends React.Component{
         let shoes = this.props.shoes ? <img src={this.props.shoes.image} alt="shoes" style={{width: "50px"}}/> : <img src="https://cdn3.iconfinder.com/data/icons/modifiers-essential/48/v-34-512.png" alt="no image" style={{width: "50px"}}/>
         return(
             <Link to="/outfitshow" onClick={() => this.props.selectedOutfit(null, this.props.hats, this.props.jewelry, this.props.jackets, this.props.shirts, this.props.belts,this.props.pants, this.props.shoes)}>
-                <div style={{border: "1px solid black", width: "200px", textAlign: "center", display: "inline-block"}}>
+                <div style={{background: "#000000", opacity: "0.6", border: "1px solid black", width: "200px", textAlign: "center", display: "inline-block"}}>
                     {hat}
                     <br/>
                     {jewelry}

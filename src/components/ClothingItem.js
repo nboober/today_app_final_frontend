@@ -7,7 +7,7 @@ class ClothingItem extends React.Component{
             this.props.clothingItem ? 
 
             <Link to="/updateclothingitem" onClick={()=>this.props.selectClothingItem(this.props.clothingItem)}>
-                <div style={{border: "1px solid black", width: "200px", display: "inline-block"}}>
+                <div style={{color: "white", textAlign: "center", border: "1px solid black", height: "200px", width: "200px", display: "inline-block"}}>
                     <h2>{this.props.clothingItem.name}</h2>
                     <img style={{width: "50px"}} src={this.props.clothingItem.image} alt={this.props.clothingItem.name}/>
                     <p>{this.props.clothingItem.location}</p>

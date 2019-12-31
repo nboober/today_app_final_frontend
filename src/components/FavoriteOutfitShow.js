@@ -156,7 +156,11 @@ class FavoriteOutfitShow extends React.Component{
         {console.log(this.props.outfit)}
         return(
             <div>
-                <h2>Your Outfit</h2>
+                <h2 style={{color: "white"}}>Your Outfit</h2>
+                <Link to="/" className="btn btn-primary" onClick={this.favorite}>Favorite</Link>
+                <Link to="/profile" onClick={this.delete}>Delete</Link>
+                <br/>
+
                 <OutfitShowItem clothingChange={this.clothingChange} selectClothingItem={this.props.selectClothingItem} clothingItem={this.props.outfit[0]} type={this.props.hats}/>
                 <OutfitShowItem clothingChange={this.clothingChange} selectClothingItem={this.props.selectClothingItem} clothingItem={this.props.outfit[1]} type={this.props.jewelry}/>
                 <OutfitShowItem clothingChange={this.clothingChange} selectClothingItem={this.props.selectClothingItem} clothingItem={this.props.outfit[2]} type={this.props.jackets}/>
@@ -165,8 +169,6 @@ class FavoriteOutfitShow extends React.Component{
                 <OutfitShowItem clothingChange={this.clothingChange} selectClothingItem={this.props.selectClothingItem} clothingItem={this.props.outfit[5]} type={this.props.pants}/>
                 <OutfitShowItem clothingChange={this.clothingChange} selectClothingItem={this.props.selectClothingItem} clothingItem={this.props.outfit[6]} type={this.props.shoes}/>
 
-                <Link to="/" onClick={this.favorite}>Favorite</Link>
-                <Link to="/profile" onClick={this.delete}>Delete</Link>
 
             </div>
         )

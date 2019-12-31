@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
-
+import Swal from 'sweetalert2'
 
 class Login extends React.Component{
     constructor(){
@@ -41,7 +41,20 @@ class Login extends React.Component{
             .then(response => response.json())
             .then(data => {
                 // debugger
-                alert(data.message)
+                if(data.message){
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Log In Successful',
+                        text: 'Please wait we are Logging you in...'
+                      })
+                    // alert(data.message)
+                }else{
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Incorrect Login',
+                        text: 'Either the Username or Password entered was incorrect. Please try again'
+                      })
+                }
                 // console.log(data.user)
                 // save token in local storage
                 localStorage.setItem("jwt", data.token)

@@ -7,11 +7,11 @@ class Profile extends React.Component{
         return(
             <div style={{overflowY: "scroll"}}>
                 <div style={{float: "left", 
-                            border: "1px solid white", 
+                            border: "1px solid black", 
                             height: "90vh", 
                             width: "25%",
                             background: "#000000",
-                            opacity: "0.6",
+                            opacity: "0.6"
                             }}>
                     <h2 style={{color: "white"}}>
                         {this.props.user.firstname}'s Profile

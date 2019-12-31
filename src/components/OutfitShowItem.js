@@ -58,8 +58,8 @@ class OutfitShowItem extends React.Component{
                     <div className="carousel-item active" >
                         <img className="d-block w-100" src={this.props.clothingItem.image} alt={this.props.clothingItem.name}/>
                         <div className="carousel-caption d-none d-md-block">
-                            <h5>{this.props.clothingItem.name}</h5>
-                            <p>{this.props.clothingItem.location}</p>
+                            <h5 style={{background: "#000000", opacity: "0.6"}}>{this.props.clothingItem.name}</h5>
+                            <p style={{background: "#000000", opacity: "0.6"}}>{this.props.clothingItem.location}</p>
                         </div>
                     </div>
 
@@ -69,8 +69,8 @@ class OutfitShowItem extends React.Component{
                                 <div style={{opacity: "0"}}>{item.id}</div>
                                 <img className="d-block w-100" src={item.image} alt={item.name} />
                                 <div className="carousel-caption d-none d-md-block">
-                                    <h5>{item.name}</h5>
-                                    <p>{item.location}</p>
+                                    <h5 style={{background: "#000000", opacity: "0.6"}}>{item.name}</h5>
+                                    <p style={{background: "#000000", opacity: "0.6"}}>{item.location}</p>
                                 </div>
                             </div>
                 })}

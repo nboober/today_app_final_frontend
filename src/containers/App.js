@@ -264,6 +264,7 @@ class App extends React.Component{
           clothes: user.clothes,
           outfits: user.outfits
         },()=>{
+          console.log(this.state.outfits)
           this.filterClothesByWeather()
         })
       }

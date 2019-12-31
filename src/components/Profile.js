@@ -39,7 +39,7 @@ class Profile extends React.Component{
                         <br/>
                         <div>
 
-                        {this.props.outfits ? (this.props.outfits.map((outfit)=>{
+                        {this.props.outfits.length > 0 ? (this.props.outfits.map((outfit)=>{
                             
                                 return <FavoriteOutfitContainer 
                                         key={outfit.id}

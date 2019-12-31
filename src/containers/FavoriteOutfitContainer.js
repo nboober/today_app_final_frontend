@@ -24,30 +24,31 @@ class FavoriteOutfitContainer extends React.Component{
         let pants = "";
         let shoes = "";
 
-        this.props.outfit.clothes.map((item)=>{
-            if(item.clothes_type === "hat"){
-                hat = item
-            }
-            if(item.clothes_type === "jewelry"){
-                jewelry = item
-            }
-            if(item.clothes_type === "jacket"){
-                jacket = item
-            }
-            if(item.clothes_type === "shirt"){
-                shirt = item
-            }
-            if(item.clothes_type === "belt"){
-                belt = item
-            }
-            if(item.clothes_type === "pants"){
-                pants = item
-            }
-            
-            if(item.clothes_type === "shoes"){
-                shoes = item
-            }
-        })
+            this.props.outfit.clothes.map((item)=>{
+                if(item.clothes_type === "hat"){
+                    hat = item
+                }
+                if(item.clothes_type === "jewelry"){
+                    jewelry = item
+                }
+                if(item.clothes_type === "jacket"){
+                    jacket = item
+                }
+                if(item.clothes_type === "shirt"){
+                    shirt = item
+                }
+                if(item.clothes_type === "belt"){
+                    belt = item
+                }
+                if(item.clothes_type === "pants"){
+                    pants = item
+                }
+                
+                if(item.clothes_type === "shoes"){
+                    shoes = item
+                }
+            })
+
         this.setState({
             hat: hat,
             jewelry: jewelry,
@@ -60,6 +61,7 @@ class FavoriteOutfitContainer extends React.Component{
     }
 
     render(){
+
         let hat = this.state.hat ? <img src={this.state.hat.image} alt="hat" style={{width: "50px"}}/> : <img src="https://cdn3.iconfinder.com/data/icons/modifiers-essential/48/v-34-512.png" alt="no image" style={{width: "50px"}}/>
         let jewelry = this.state.jewelry ? <img src={this.state.jewelry.image} alt="jewelry" style={{width: "50px"}}/> : <img src="https://cdn3.iconfinder.com/data/icons/modifiers-essential/48/v-34-512.png" alt="no image" style={{width: "50px"}}/>
         let jacket = this.state.jacket ? <img src={this.state.jacket.image} alt="jackets" style={{width: "50px"}}/> : <img src="https://cdn3.iconfinder.com/data/icons/modifiers-essential/48/v-34-512.png" alt="no image" style={{width: "50px"}}/>

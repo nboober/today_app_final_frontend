@@ -487,6 +487,7 @@ class App extends React.Component{
                   jewelry={this.state.jewelry}
                   user={this.state.currentUser}
                   updateUserClothes={this.updateUserClothes}
+                  backgroundImage={this.state.backgroundImage}
                     />
                 ) : (
                   <Redirect to='/login' />
@@ -510,6 +511,7 @@ class App extends React.Component{
                   user={this.state.currentUser}
                   updateUserClothes={this.updateUserClothes}
                   deleteOutfit={this.deleteOutfit}
+                  backgroundImage={this.state.backgroundImage}
                     />
                 ) : (
                   <Redirect to='/login' />

@@ -163,7 +163,8 @@ class FavoriteOutfitShow extends React.Component{
     render(){
         {console.log(this.props.outfit)}
         return(
-            <div>
+            <div style={{backgroundImage: `url(${this.props.backgroundImage})`, backgroundPosition: "center",
+            backgroundRepeat: "repeat-y",backgroundSize: "cover", height: "100vh"}}>
                 <h2 style={{color: "white"}}>Your Outfit</h2>
 
                 <Link to="/" className="btn btn-primary" onClick={this.favorite}>Favorite</Link>

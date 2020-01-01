@@ -101,7 +101,8 @@ class UpdateProfile extends React.Component{
 
     render(){
         return(
-            <div>
+            <div style={{backgroundImage: `url(${this.props.backgroundImage})`, backgroundPosition: "center",
+            backgroundRepeat: "repeat-y",backgroundSize: "cover", height: "100vh"}}>
 
                 <form style={{width: "75%", margin: "5% auto",background: "#000000", opacity: "0.8"}}>
 

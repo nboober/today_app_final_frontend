@@ -5,7 +5,8 @@ import {Link} from 'react-router-dom';
 class Profile extends React.Component{
     render(){
         return(
-            <div >
+            <div style={{backgroundImage: `url(${this.props.backgroundImage})`, backgroundPosition: "center",
+            backgroundRepeat: "repeat-y",backgroundSize: "cover", height: "100vh"}}>
                 <div style={{float: "left", 
                             border: "1px solid black", 
                             height: "90vh", 

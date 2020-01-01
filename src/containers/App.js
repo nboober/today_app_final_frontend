@@ -315,8 +315,10 @@ class App extends React.Component{
     // console.log(finalArray)
 
     this.setState({
+      allUserClothes: finalArray,
       clothes: finalArray
     },()=>{
+      // console.log(this.state.clothes)
       this.filterClothesByWeather()
     })
     // console.log("updating clothes")

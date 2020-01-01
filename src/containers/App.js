@@ -387,7 +387,7 @@ class App extends React.Component{
   render(){
     return (
       <div style={{backgroundImage: `url(${this.state.backgroundImage})`, backgroundPosition: "center",
-      backgroundRepeat: "no-repeat",backgroundSize: "cover", height: "100vh"}}>
+      backgroundRepeat: "repeat-y",backgroundSize: "cover", height: "100vh"}}>
         {/* Nav Bar */}
         <Nav user={this.state.currentUser} logout={this.logout} updateUser={this.updateUser}/>
         
@@ -428,6 +428,7 @@ class App extends React.Component{
               <Profile user={this.state.currentUser} 
                         selectedOutfit={this.selectedOutfit}
                         outfits={this.state.outfits}
+                        backgroundImage={this.state.backgroundImage}
                         />
                 ) : (
               <Redirect to='/login' />

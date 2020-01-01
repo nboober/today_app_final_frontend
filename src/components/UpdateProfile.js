@@ -103,7 +103,7 @@ class UpdateProfile extends React.Component{
         return(
             <div>
 
-                <form style={{width: "75%", margin: "5% auto",background: "#000000", opacity: "0.6"}}>
+                <form style={{width: "75%", margin: "5% auto",background: "#000000", opacity: "0.8"}}>
 
                 <h2 style={{color: "white"}}>Update Profile</h2>
 

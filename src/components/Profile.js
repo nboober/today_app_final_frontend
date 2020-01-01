@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 class Profile extends React.Component{
     render(){
         return(
-            <div>
+            <div >
                 <div style={{float: "left", 
                             border: "1px solid black", 
                             height: "90vh", 
@@ -38,7 +38,7 @@ class Profile extends React.Component{
                     <Link style={{fontSize: "20px", marginTop: "10%"}} className="btn btn-primary" to="/clothescontainer" >Update Clothes</Link>
                 </div>
 
-                <div style={{width: "50%", float: "right"}}>
+                <div style={{width: "50%", float: "right", height: "100vh", overflowY: "scroll"}}>
                     <h2>
                         My Favorite Outfits
                     </h2>

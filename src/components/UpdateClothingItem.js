@@ -207,7 +207,7 @@ class UpdateClothingItem extends React.Component{
         // {console.log(this.props.selectedClothingItem)}
         return(
             <div style={{color: "white"}}>
-                <form onSubmit={this.onSubmitForm} style={{width: "75%", margin: "1% auto",background: "#000000", opacity: "0.6"}}>
+                <form onSubmit={this.onSubmitForm} style={{width: "75%", margin: "0 auto",background: "#000000", opacity: "0.8"}}>
                 <h2>Update Clothing Item</h2>
 
                     <br/>
@@ -255,7 +255,6 @@ class UpdateClothingItem extends React.Component{
                     <br/>
                     {/* <input type="submit" value="Update Clothing" /> */}
                     <Link className="btn btn-primary" onClick={this.onSubmitForm} to="/clothescontainer">Update</Link>
-                    <br/>
                     <Link onClick={this.deleteClothes} to="/clothescontainer">Delete Clothing</Link>
                     
                 </form>

@@ -11,7 +11,7 @@ class Profile extends React.Component{
                             height: "90vh", 
                             width: "25%",
                             background: "#000000",
-                            opacity: "0.6"
+                            opacity: "0.8"
                             }}>
                     <h2 style={{color: "white"}}>
                         {this.props.user.firstname}'s Profile

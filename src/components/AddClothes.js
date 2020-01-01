@@ -121,7 +121,7 @@ class AddClothes extends React.Component{
     render(){
         return(
             <div style={{color: "white"}}>
-                <form onSubmit={this.onSubmitForm} style={{width: "75%", margin: "2% auto",background: "#000000", opacity: "0.6"}}>
+                <form onSubmit={this.onSubmitForm} style={{width: "75%", margin: "0 auto",background: "#000000", opacity: "0.8"}}>
                 <h2 style={{color: "white"}}>Add Clothes</h2>
 
                     <br/>

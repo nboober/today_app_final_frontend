@@ -154,7 +154,7 @@ class FavoriteOutfitShow extends React.Component{
         fetch(`http://localhost:3000/outfits/${id}`,{
             method: 'DELETE'
         }).then(()=>{
-            console.log("deleted item")
+            this.props.deleteOutfit(id)
         }).catch(err => {
             console.log(err)
         })

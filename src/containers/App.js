@@ -350,6 +350,26 @@ class App extends React.Component{
     })
   }
 
+  deleteOutfit = (id) => {
+
+    let updatedOutfits = [];
+    
+    this.state.outfits.map((item)=>{
+      if(item.id !== id){
+        updatedOutfits.push(item)
+      }
+    })
+
+    let finalArray = [...updatedOutfits]
+
+    // console.log(finalArray)
+
+    this.setState({
+      outfits: finalArray
+    })
+    // console.log("updating clothes")
+  }
+
   updateUserClothes = (arrayOfOutfits) => {
     // console.log(object)
     this.setState({
@@ -407,7 +427,8 @@ class App extends React.Component{
             return this.state.currentUser ? (
               <Profile user={this.state.currentUser} 
                         selectedOutfit={this.selectedOutfit}
-                        outfits={this.state.outfits}/>
+                        outfits={this.state.outfits}
+                        />
                 ) : (
               <Redirect to='/login' />
                 )
@@ -487,6 +508,7 @@ class App extends React.Component{
                   jewelry={this.state.jewelry}
                   user={this.state.currentUser}
                   updateUserClothes={this.updateUserClothes}
+                  deleteOutfit={this.deleteOutfit}
                     />
                 ) : (
                   <Redirect to='/login' />

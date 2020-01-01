@@ -294,11 +294,11 @@ class App extends React.Component{
     // console.log("updating clothes")
   }
 
-  addClothes = (newObject) => {
-    this.setState({
-      allUserClothes: [...this.state.clothes, newObject]
-    },()=> this.mostOccuringClothesItem())
-  }
+  // addClothes = (newObject) => {
+  //   this.setState({
+  //     allUserClothes: [...this.state.clothes, newObject]
+  //   },()=> this.mostOccuringClothesItem())
+  // }
 
   deleteClothes = (object) => {
 
@@ -326,11 +326,11 @@ class App extends React.Component{
 
   addClothes = (newObject) => {
     this.setState({
-      clothes: [...this.state.clothes, newObject],
-      allUserClothes: [...this.state.clothes, newObject]
-    },()=>{
-      this.filterClothesByWeather()
-    })
+      allUserClothes: [...this.state.allUserClothes, newObject],
+      clothes: [...this.state.clothes, newObject]
+    },()=>{this.filterClothesByWeather()},
+    ()=>{this.mostOccuringClothesItem()}
+    )
    
   }
 

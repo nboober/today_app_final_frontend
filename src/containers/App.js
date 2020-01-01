@@ -45,6 +45,7 @@ class App extends React.Component{
     }
   }
 
+  // On load of app local Storage is checked for a jwt token(user already logged in), and geoLocation is checked for weather
   componentDidMount = () => {
     this.getGeoLocation()
 
@@ -55,6 +56,7 @@ class App extends React.Component{
 
   }
 
+  // This method gets the current location and setState for lat and long
   getGeoLocation = () => {
     const showPosition = (position) => {
       // console.log(position.coords.latitude);
@@ -75,6 +77,7 @@ class App extends React.Component{
     }
   }
 
+  // the lat and long in state is used to fetch the current weather in the area. The weather and temp are set to state
   fetchLocation = (lat, long) => {
     let coordinates = lat + "," + long
     // console.log(coordinates)
@@ -106,6 +109,7 @@ class App extends React.Component{
     })
   }
 
+  // This method takes the weather from state, filters the clothes appropriately based on the weather, and sets the appropriate background
   filterClothesByWeather = () => {
 
     let weatherState = "";
@@ -193,6 +197,7 @@ class App extends React.Component{
       })
   }
 
+  // this method finds the most occuring clothing item in order to count how many outfits should be rendered
   mostOccuringClothesItem = () => {
 
     let shirt_length = this.state.shirts.length
@@ -239,6 +244,7 @@ class App extends React.Component{
 
 }
 
+  // This methd fetches the signed in user
   fetchSignedInUser = () => {
 
       fetch('http://localhost:3000/profile',{
@@ -253,6 +259,7 @@ class App extends React.Component{
 
   }
 
+  // This method updates the user. If the user is true then set is state for the users clothes
   updateUser = (user) => {
     // console.log(user)
     this.setState({
@@ -271,6 +278,7 @@ class App extends React.Component{
     })
   }
 
+  // This method updates the users clothes
   updateClothes = (newObject) => {
 
     let updatedClothes = [];
@@ -294,12 +302,7 @@ class App extends React.Component{
     // console.log("updating clothes")
   }
 
-  // addClothes = (newObject) => {
-  //   this.setState({
-  //     allUserClothes: [...this.state.clothes, newObject]
-  //   },()=> this.mostOccuringClothesItem())
-  // }
-
+  // This method is for deleting the users clothes
   deleteClothes = (object) => {
 
     let updatedClothes = [];
@@ -324,6 +327,7 @@ class App extends React.Component{
     // console.log("updating clothes")
   }
 
+  // This method is for adding new clothes
   addClothes = (newObject) => {
     this.setState({
       allUserClothes: [...this.state.allUserClothes, newObject],
@@ -334,6 +338,7 @@ class App extends React.Component{
    
   }
 
+  // This method is used to pass the selected clothing item between components
   selectClothingItem = (clothingItem) => {
     // console.log(clothingItem)
     this.setState({
@@ -341,6 +346,7 @@ class App extends React.Component{
     })
   }
 
+  // This method is used to pass the selected outfit between components
   selectedOutfit = (outfit_id, hat, jewelery, jacket, shirt, belt, pants, shoes) => {
     // console.log([hat, jewelery, shirt, belt, pants, shoes])
 
@@ -350,6 +356,7 @@ class App extends React.Component{
     })
   }
 
+  // This method is for deleting favorite outfits
   deleteOutfit = (id) => {
 
     let updatedOutfits = [];
@@ -370,6 +377,7 @@ class App extends React.Component{
     // console.log("updating clothes")
   }
 
+  // This method id for updatng user clothes
   updateUserClothes = (arrayOfOutfits) => {
     // console.log(object)
     this.setState({
@@ -377,6 +385,7 @@ class App extends React.Component{
     })
   }
 
+  // This is a search method for searching clothing items
   search = (event) => {
     // console.log(event.target.value)
     this.setState({
@@ -388,6 +397,7 @@ class App extends React.Component{
     return (
       <div style={{backgroundImage: `url(${this.state.backgroundImage})`, backgroundPosition: "center",
       backgroundRepeat: "repeat-y",backgroundSize: "cover", height: "100%"}}>
+        
         {/* Nav Bar */}
         <Nav user={this.state.currentUser} logout={this.logout} updateUser={this.updateUser}/>
         

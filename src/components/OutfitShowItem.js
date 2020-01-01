@@ -17,18 +17,12 @@ class OutfitShowItem extends React.Component{
         },()=>{console.log(this.state.id)})
     }
 
-    clothingChange = () => {
-        // let id = document.getElementById(this.state.id).childNodes[1].childNodes[1].firstChild.innerText
-
-        let index = this.state.index;
+    indexUp = () => {
         
         let array = [this.props.clothingItem, this.props.type].flat()
-        
-        
-        // console.log(array)
-        
-        
-        
+
+
+        let index = this.state.index;
         index++;
         if(index >= array.length){
             index = 0;
@@ -36,10 +30,35 @@ class OutfitShowItem extends React.Component{
         
         this.setState({
             index: index
-        })
+        }, () => this.clothingChange())
+        
+    }
+    
+    indexDown = () => {
+
+        let array = [this.props.clothingItem, this.props.type].flat()
+
+        let index = this.state.index;
+        index--;
+        if(index < 0){
+            index = array.length-1;
+        }
+        
+        this.setState({
+            index: index
+        }, () => this.clothingChange())
+
+    }
+
+    clothingChange = () => {
+        // let id = document.getElementById(this.state.id).childNodes[1].childNodes[1].firstChild.innerText
+
+        let array = [this.props.clothingItem, this.props.type].flat()
+        
+        // console.log(array)
         
         // console.log(array[index])
-        this.props.clothingChange(array[index], this.state.id)
+        this.props.clothingChange(array[this.state.index], this.state.id)
     }
 
     render(){
@@ -76,11 +95,11 @@ class OutfitShowItem extends React.Component{
                 })}
                     
                 </div>
-                <a className="carousel-control-prev" href={'#' + this.props.clothingItem.clothes_type} onClick={this.clothingChange} role="button" data-slide="prev">
+                <a className="carousel-control-prev" href={'#' + this.props.clothingItem.clothes_type} onClick={this.indexDown} role="button" data-slide="prev">
                     <span className="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span className="sr-only">Previous</span>
                 </a>
-                <a className="carousel-control-next" href={'#' + this.props.clothingItem.clothes_type} onClick={this.clothingChange} role="button" data-slide="next">
+                <a className="carousel-control-next" href={'#' + this.props.clothingItem.clothes_type} onClick={this.indexUp} role="button" data-slide="next">
                     <span className="carousel-control-next-icon" aria-hidden="true"></span>
                     <span className="sr-only">Next</span>
                 </a>

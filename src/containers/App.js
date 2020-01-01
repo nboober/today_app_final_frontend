@@ -77,7 +77,7 @@ class App extends React.Component{
     }
   }
 
-  // the lat and long in state is used to fetch the current weather in the area. The weather and temp are set to state
+  // the lat and long in state is used to fetch the current weather in the area. The weather and temp are set to state. Once the weather is fetched a jwt is checked to see if a user is logged in
   fetchLocation = (lat, long) => {
     let coordinates = lat + "," + long
     // console.log(coordinates)
@@ -397,7 +397,7 @@ class App extends React.Component{
     return (
       <div style={{backgroundImage: `url(${this.state.backgroundImage})`, backgroundPosition: "center",
       backgroundRepeat: "repeat-y",backgroundSize: "cover", height: "100%"}}>
-        
+
         {/* Nav Bar */}
         <Nav user={this.state.currentUser} logout={this.logout} updateUser={this.updateUser}/>
         

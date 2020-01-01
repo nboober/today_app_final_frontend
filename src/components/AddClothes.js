@@ -168,7 +168,7 @@ class AddClothes extends React.Component{
                     
                     <br/>
                     {/* <input type="submit" value="Add Clothing"/> */}
-                    <Link className="btn btn-primary" onClick={this.onSubmitForm} to="/clothescontainer">Add Clothing</Link>
+                    <Link className="btn btn-primary" onClick={this.onSubmitForm} to="/profile">Add Clothing</Link>
 
                     
                 </form>

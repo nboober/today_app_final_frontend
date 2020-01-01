@@ -296,7 +296,7 @@ class App extends React.Component{
 
   addClothes = (newObject) => {
     this.setState({
-      clothes: [...this.state.clothes, newObject]
+      allUserClothes: [...this.state.clothes, newObject]
     },()=> this.mostOccuringClothesItem())
   }
 

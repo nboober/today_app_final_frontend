@@ -66,7 +66,7 @@ class OutfitShowItem extends React.Component{
         return(
             this.props.clothingItem ? 
 
-            <div id={this.props.clothingItem.clothes_type} data-interval="false" className="carousel slide clothingItems" data-ride="carousel">
+            <div id={this.props.clothingItem.clothes_type} data-interval="false" className="carousel slide carousalClothingItems" data-ride="carousel">
                 <ol className="carousel-indicators">
                 {_.times(this.props.type.length, (index) => {
                     return <li key={index} data-target={'#' + this.props.clothingItem.clothes_type} data-slide-to={index} className="active"></li>

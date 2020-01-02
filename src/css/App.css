@@ -49,6 +49,10 @@
   display: inline-block;
 }
 
+.indClothingItem{
+  width: 50px;
+}
+
 .overflowY{
   height: 100vh;
   overflow-y: scroll;

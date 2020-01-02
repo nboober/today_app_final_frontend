@@ -62,13 +62,13 @@ class FavoriteOutfitContainer extends React.Component{
 
     render(){
 
-        let hat = this.state.hat ? <img src={this.state.hat.image} alt="hat" style={{width: "50px"}}/> : <img src="https://cdn3.iconfinder.com/data/icons/modifiers-essential/48/v-34-512.png" alt="no image" style={{width: "50px"}}/>
-        let jewelry = this.state.jewelry ? <img src={this.state.jewelry.image} alt="jewelry" style={{width: "50px"}}/> : <img src="https://cdn3.iconfinder.com/data/icons/modifiers-essential/48/v-34-512.png" alt="no image" style={{width: "50px"}}/>
-        let jacket = this.state.jacket ? <img src={this.state.jacket.image} alt="jackets" style={{width: "50px"}}/> : <img src="https://cdn3.iconfinder.com/data/icons/modifiers-essential/48/v-34-512.png" alt="no image" style={{width: "50px"}}/>
-        let shirt = this.state.shirt ? <img src={this.state.shirt.image} alt="shirts" style={{width: "50px"}}/> : <img src="https://cdn3.iconfinder.com/data/icons/modifiers-essential/48/v-34-512.png" alt="no image" style={{width: "50px"}}/>
-        let belt = this.state.belt ? <img src={this.state.belt.image} alt="belts" style={{width: "50px"}}/> : <img src="https://cdn3.iconfinder.com/data/icons/modifiers-essential/48/v-34-512.png" alt="no image" style={{width: "50px"}}/>
-        let pants = this.state.pants ? <img src={this.state.pants.image} alt="pants" style={{width: "50px"}}/> : <img src="https://cdn3.iconfinder.com/data/icons/modifiers-essential/48/v-34-512.png" alt="no image" style={{width: "50px"}}/>
-        let shoes = this.state.shoes ? <img src={this.state.shoes.image} alt="shoes" style={{width: "50px"}}/> : <img src="https://cdn3.iconfinder.com/data/icons/modifiers-essential/48/v-34-512.png" alt="no image" style={{width: "50px"}}/>
+        let hat = this.state.hat ? <img src={this.state.hat.image} alt="hat" className="outfitContainerPictureSize"/> : <img src="https://cdn3.iconfinder.com/data/icons/modifiers-essential/48/v-34-512.png" alt="no image" className="outfitContainerPictureSize"/>
+        let jewelry = this.state.jewelry ? <img src={this.state.jewelry.image} alt="jewelry" className="outfitContainerPictureSize"/> : <img src="https://cdn3.iconfinder.com/data/icons/modifiers-essential/48/v-34-512.png" alt="no image" className="outfitContainerPictureSize"/>
+        let jacket = this.state.jacket ? <img src={this.state.jacket.image} alt="jackets" className="outfitContainerPictureSize"/> : <img src="https://cdn3.iconfinder.com/data/icons/modifiers-essential/48/v-34-512.png" alt="no image" className="outfitContainerPictureSize"/>
+        let shirt = this.state.shirt ? <img src={this.state.shirt.image} alt="shirts" className="outfitContainerPictureSize"/> : <img src="https://cdn3.iconfinder.com/data/icons/modifiers-essential/48/v-34-512.png" alt="no image" className="outfitContainerPictureSize"/>
+        let belt = this.state.belt ? <img src={this.state.belt.image} alt="belts" className="outfitContainerPictureSize"/> : <img src="https://cdn3.iconfinder.com/data/icons/modifiers-essential/48/v-34-512.png" alt="no image" className="outfitContainerPictureSize"/>
+        let pants = this.state.pants ? <img src={this.state.pants.image} alt="pants" className="outfitContainerPictureSize"/> : <img src="https://cdn3.iconfinder.com/data/icons/modifiers-essential/48/v-34-512.png" alt="no image" className="outfitContainerPictureSize"/>
+        let shoes = this.state.shoes ? <img src={this.state.shoes.image} alt="shoes" className="outfitContainerPictureSize"/> : <img src="https://cdn3.iconfinder.com/data/icons/modifiers-essential/48/v-34-512.png" alt="no image" className="outfitContainerPictureSize"/>
         
         return(
             <Link to="/favoriteoutfitshow" onClick={() => this.props.selectedOutfit(this.props.outfit.id, this.state.hat, this.state.jewelry, this.state.jacket, this.state.shirt, this.state.belt,this.state.pants, this.state.shoes)}>

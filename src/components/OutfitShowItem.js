@@ -74,7 +74,7 @@ class OutfitShowItem extends React.Component{
                 </ol>
                 <div className="carousel-inner" >
 
-                    <div className="carousel-item active" >
+                    <div className="carousel-item active" style={{height: "200px"}}>
                         <img className="d-block w-100" src={this.props.clothingItem.image} alt={this.props.clothingItem.name}/>
                         <div className="carousel-caption d-none d-md-block">
                             <h5 className="carousalFont">{this.props.clothingItem.name}</h5>
@@ -84,7 +84,7 @@ class OutfitShowItem extends React.Component{
 
                 {this.props.type.map(item => {
                     // console.log(item)
-                    return  <div key={item.name} className="carousel-item" >
+                    return  <div key={item.name} className="carousel-item" style={{height: "200px"}}>
                                 <div style={{opacity: "0"}}>{item.id}</div>
                                 <img className="d-block w-100" src={item.image} alt={item.name} />
                                 <div className="carousel-caption d-none d-md-block">

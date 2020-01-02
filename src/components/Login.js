@@ -65,10 +65,11 @@ class Login extends React.Component{
 
     render(){
         return(
-            <div>
+            <div style={{backgroundImage: `url(${this.props.backgroundImage})`, backgroundPosition: "center",
+            backgroundRepeat: "repeat-y",backgroundSize: "cover", height: "100vh"}}>
 
                 <form style={{paddingTop: "15%", width: "75%", margin: "0 auto"}} onSubmit={this.handleLoginSubmit}>
-                <h1 style={{color: "white"}}>Welcome to Today</h1>
+                <h1 className="whiteFont">Welcome to Today</h1>
                     <div className="row">
                         <div className="col">
                         <input className="form-control" onChange={this.handleUsernameChange} value={this.state.username} name='username' type='text' placeholder='username'/>

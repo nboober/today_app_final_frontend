@@ -40,7 +40,7 @@ class Profile extends React.Component{
                 </div>
 
                 <div style={{width: "50%", float: "right", height: "100vh", overflowY: "scroll"}}>
-                    <h2>
+                    <h2 className="whiteFont">
                         My Favorite Outfits
                     </h2>
                         <br/>

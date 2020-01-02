@@ -5,42 +5,35 @@ import {Link} from 'react-router-dom';
 class Profile extends React.Component{
     render(){
         return(
-            <div style={{backgroundImage: `url(${this.props.backgroundImage})`, backgroundPosition: "center",
-            backgroundRepeat: "repeat-y",backgroundSize: "cover", height: "100vh"}}>
-                <div style={{float: "left", 
-                            border: "1px solid black", 
-                            height: "90vh", 
-                            width: "25%",
-                            background: "#000000",
-                            opacity: "0.8"
-                            }}>
-                    <h2 style={{color: "white"}}>
+            <div style={{backgroundImage: `url(${this.props.backgroundImage})`}} className="backgroundImage whiteFont">
+                <div className="profileFloatLeft">
+                    <h2>
                         {this.props.user.firstname}'s Profile
                     </h2>
 
-                    <img style={{width: "100%"}} src={this.props.user.avatar} alt="profile image" />
+                    <img className="hundredWidth" src={this.props.user.avatar} alt="profile image" />
                     <br/>
 
-                    <h3 style={{color: "white", textAlign: "center"}}>
+                    <h3 className="whiteFont alignCenter">
                         First Name: {this.props.user.firstname}
                     </h3>
 
-                    <h3 style={{color: "white", textAlign: "center"}}>
+                    <h3 className="whiteFont alignCenter">
                         Last Name: {this.props.user.lastname}
                     </h3>
 
-                    <h3 style={{color: "white", textAlign: "center"}}>
+                    <h3 className="whiteFont alignCenter">
                         username: {this.props.user.username}
                     </h3>
-                    <Link style={{fontSize: "20px", marginTop: "10%"}} className="btn btn-primary" to="/updateprofile" >Update Profile</Link>
+                    <Link className="btn btn-primary profileButtons" to="/updateprofile" >Update Profile</Link>
                     <br/>
-                    <Link style={{fontSize: "20px", marginTop: "10%"}} className="btn btn-primary" to="/addclothes" >Add Clothes</Link>
+                    <Link className="btn btn-primary profileButtons" to="/addclothes" >Add Clothes</Link>
                     <br/>
-                    <Link style={{fontSize: "20px", marginTop: "10%"}} className="btn btn-primary" to="/clothescontainer" >Update Clothes</Link>
+                    <Link className="btn btn-primary profileButtons" to="/clothescontainer" >Update Clothes</Link>
                 </div>
 
-                <div style={{width: "50%", float: "right", height: "100vh", overflowY: "scroll"}}>
-                    <h2 className="whiteFont">
+                <div className="favoriteOutfitsFloatRight overflowY whiteFont">
+                    <h2>
                         My Favorite Outfits
                     </h2>
                         <br/>

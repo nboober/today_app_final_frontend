@@ -1,7 +1,100 @@
 .loginForm{
- 
+  padding-top: 15%;
+  width: 75%;
+  margin: 0 auto;
 }
 
 .whiteFont{
   color: white;
+}
+
+.backgroundImage{
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.backgroundImagePercent{
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+
+.opace{
+  background: #000000;
+  opacity: 0.8;
+}
+
+.opaceForm{
+  width: 75%;
+  margin: 0 auto;
+  background: #000000;
+  opacity: 0.8;
+}
+
+.opaceFormTopMargin{
+  width: 75%;
+  margin: 5% auto;
+  background: #000000;
+  opacity: 0.8;
+}
+
+.clothingItems{
+  text-align: center;
+  border: 1px solid black;
+  height: 200px;
+  width: 200px;
+  display: inline-block;
+}
+
+.overflowY{
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.navFont{
+  font-size: 32px;
+}
+
+.carousalFont{
+  background: #000000;
+  opacity: 0.8;
+}
+
+.profileFloatLeft{
+  float: left;
+  border: 1px solid black;
+  height: 90vh;
+  width: 25%;
+  background: #000000;
+  opacity: 0.8;
+}
+
+.favoriteOutfitsFloatRight{
+  width: 50%;
+  float: right;
+}
+
+.outfitContainer{
+  background: #000000;
+  opacity: 0.8;
+  border: 1px solid black;
+  width: 200px;
+  text-align: center;
+  display: inline-block;
+}
+
+.hundredWidth{
+  width: 100%;
+}
+
+.alignCenter{
+  text-align: center;
+}
+
+.profileButtons{
+  font-size: 20px;
+  margin-top: 10%;
 }

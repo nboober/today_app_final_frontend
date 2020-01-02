@@ -72,7 +72,7 @@ class FavoriteOutfitContainer extends React.Component{
         
         return(
             <Link to="/favoriteoutfitshow" onClick={() => this.props.selectedOutfit(this.props.outfit.id, this.state.hat, this.state.jewelry, this.state.jacket, this.state.shirt, this.state.belt,this.state.pants, this.state.shoes)}>
-                <div style={{background: "#000000", opacity: "0.8",border: "1px solid black", width: "200px", textAlign: "center", display: "inline-block"}}>
+                <div className="outfitContainer">
                     {hat}
                     <br/>
                     {jewelry}

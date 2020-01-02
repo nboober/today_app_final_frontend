@@ -6,8 +6,8 @@ import _ from 'lodash';
 class Home extends React.Component{
     render(){
         return(
-            <div style={{height: "100vh", overflowY: "scroll"}}>
-                <h2 style={{color: "white"}}>My Outfits</h2>
+            <div className="overflowY whiteFont">
+                <h2>My Outfits</h2>
                 {/* <Filter/> */}
                 {_.times(this.props.max, (index) => {
                     let hats = this.props.hats[index] ? this.props.hats[index] : this.props.hats[0]

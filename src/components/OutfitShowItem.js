@@ -66,7 +66,7 @@ class OutfitShowItem extends React.Component{
         return(
             this.props.clothingItem ? 
 
-            <div id={this.props.clothingItem.clothes_type} data-interval="false" className="carousel slide" data-ride="carousel" style={{border: "1px solid black", width: "200px", height: "200px", display: "inline-block"}}>
+            <div id={this.props.clothingItem.clothes_type} data-interval="false" className="carousel slide clothingItems" data-ride="carousel">
                 <ol className="carousel-indicators">
                 {_.times(this.props.type.length, (index) => {
                     return <li key={index} data-target={'#' + this.props.clothingItem.clothes_type} data-slide-to={index} className="active"></li>
@@ -77,8 +77,8 @@ class OutfitShowItem extends React.Component{
                     <div className="carousel-item active" >
                         <img className="d-block w-100" src={this.props.clothingItem.image} alt={this.props.clothingItem.name}/>
                         <div className="carousel-caption d-none d-md-block">
-                            <h5 style={{background: "#000000", opacity: "0.6"}}>{this.props.clothingItem.name}</h5>
-                            <p style={{background: "#000000", opacity: "0.6"}}>{this.props.clothingItem.location}</p>
+                            <h5 className="carousalFont">{this.props.clothingItem.name}</h5>
+                            <p className="carousalFont">{this.props.clothingItem.location}</p>
                         </div>
                     </div>
 
@@ -88,8 +88,8 @@ class OutfitShowItem extends React.Component{
                                 <div style={{opacity: "0"}}>{item.id}</div>
                                 <img className="d-block w-100" src={item.image} alt={item.name} />
                                 <div className="carousel-caption d-none d-md-block">
-                                    <h5 style={{background: "#000000", opacity: "0.6"}}>{item.name}</h5>
-                                    <p style={{background: "#000000", opacity: "0.6"}}>{item.location}</p>
+                                    <h5 className="carousalFont">{item.name}</h5>
+                                    <p className="carousalFont">{item.location}</p>
                                 </div>
                             </div>
                 })}

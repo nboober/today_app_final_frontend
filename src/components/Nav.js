@@ -37,7 +37,7 @@ class Nav extends React.Component{
             </button>
             
           {/* <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" className="d-inline-block align-top" alt=""/> */}
-          <span style={{color: "white", fontSize: "32px"}}>TODAY</span>
+          <span className="whiteFont navFont" >TODAY</span>
           </nav>
         </div>
 

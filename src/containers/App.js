@@ -395,8 +395,7 @@ class App extends React.Component{
 
   render(){
     return (
-      <div style={{backgroundImage: `url(${this.state.backgroundImage})`, backgroundPosition: "center",
-      backgroundRepeat: "repeat-y",backgroundSize: "cover", height: "100%"}}>
+      <div style={{backgroundImage: `url(${this.state.backgroundImage})`}} className="backgroundImagePercent">
 
         {/* Nav Bar */}
         <Nav user={this.state.currentUser} logout={this.logout} updateUser={this.updateUser}/>

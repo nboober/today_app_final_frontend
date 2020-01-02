@@ -206,8 +206,8 @@ class UpdateClothingItem extends React.Component{
     render(){
         // {console.log(this.props.selectedClothingItem)}
         return(
-            <div style={{color: "white"}}>
-                <form onSubmit={this.onSubmitForm} style={{width: "75%", margin: "0 auto",background: "#000000", opacity: "0.8"}}>
+            <div className="backgroundImage whiteFont" style={{backgroundImage: `url(${this.props.backgroundImage})`}}>
+                <form className="opaceForm" onSubmit={this.onSubmitForm}>
                 <h2>Update Clothing Item</h2>
 
                     <br/>

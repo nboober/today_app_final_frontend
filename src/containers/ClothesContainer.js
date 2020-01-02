@@ -6,7 +6,7 @@ class ClothesContainer extends React.Component{
 
     render(){
         return(
-            <div className="whiteFont overflowY opace">
+            <div className="whiteFont overflowY opace ">
                 <h2>My List of Clothes</h2>
                 <Search search={this.props.search} searchText={this.props.searchText} />
                 {this.props.clothes.map((clothingItem)=>{

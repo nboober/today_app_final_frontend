@@ -82,7 +82,7 @@ class App extends React.Component{
     let coordinates = lat + "," + long
     // console.log(coordinates)
 
-    fetch(`http://localhost:3000/geolocation`,{
+    fetch(`https://todayback.herokuapp.com/geolocation`,{
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -247,7 +247,7 @@ class App extends React.Component{
   // This methd fetches the signed in user
   fetchSignedInUser = () => {
 
-      fetch('http://localhost:3000/profile',{
+      fetch('https://todayback.herokuapp.com/profile',{
         headers: {
           "Authorization": localStorage.getItem('jwt')
         }

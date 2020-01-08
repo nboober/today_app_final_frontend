@@ -27,7 +27,7 @@ class Login extends React.Component{
 
     handleLoginSubmit = (event) => {
         event.preventDefault()
-        fetch('https://todayback.herokuapp.com/login',{
+        fetch('http://todayback.herokuapp.com/login',{
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

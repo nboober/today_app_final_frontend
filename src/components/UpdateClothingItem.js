@@ -162,7 +162,7 @@ class UpdateClothingItem extends React.Component{
 
         // console.log(id)
 
-        fetch(`http://todayback.herokuapp.com/clothes/${id}`,{
+        fetch(`https://todayback.herokuapp.com/clothes/${id}`,{
             method: "PATCH",
             headers: {
                 'Content-Type': 'application/json',
@@ -192,7 +192,7 @@ class UpdateClothingItem extends React.Component{
 
         let id = this.props.selectedClothingItem.id
 
-        fetch(`http://todayback.herokuapp.com/clothes/${id}`,{
+        fetch(`https://todayback.herokuapp.com/clothes/${id}`,{
             method: 'DELETE'
         }).then(()=>{
             console.log("deleted item")

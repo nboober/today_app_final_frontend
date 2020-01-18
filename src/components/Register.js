@@ -50,7 +50,7 @@ class Register extends React.Component{
 
     handleRegisterSubmit = (event) => {
         event.preventDefault()
-        fetch('http://todayback.herokuapp.com/users',{
+        fetch('https://todayback.herokuapp.com/users',{
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -91,7 +91,7 @@ class AddClothes extends React.Component{
     onSubmitForm = () => {
         // console.log("form submitted")
         // event.preventDefault()
-        fetch("https://localhost:3000/clothes",{
+        fetch("http://localhost:3000/clothes",{
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',

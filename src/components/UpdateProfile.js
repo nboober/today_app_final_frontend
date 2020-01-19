@@ -63,7 +63,7 @@ class UpdateProfile extends React.Component{
 
         let id = this.props.user.id;
         
-        fetch(`https://localhost:3000/users/${id}`,{
+        fetch(`http://localhost:3000/users/${id}`,{
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
@@ -89,7 +89,7 @@ class UpdateProfile extends React.Component{
 
         let id = this.props.user.id
 
-        fetch(`https://localhost:3000/users/${id}`,{
+        fetch(`http://localhost:3000/users/${id}`,{
             method: 'DELETE'
         })
         .then(response => response.json())

@@ -102,7 +102,7 @@ class OutfitShow extends React.Component{
         console.log("favorited")
         let id = "";
 
-        fetch("http://localhost:3000/outfits", {
+        fetch("http://todayback.herokuapp.com/outfits", {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
@@ -116,7 +116,7 @@ class OutfitShow extends React.Component{
         .then(data => {console.log(data)
 
             this.state.outfit.map((item)=>{
-                fetch("http://localhost:3000/outfit_clothes", {
+                fetch("http://todayback.herokuapp.com/outfit_clothes", {
                     method: "POST",
                     headers: {
                         "Content-Type":"application/json",
@@ -143,7 +143,7 @@ class OutfitShow extends React.Component{
     }
 
     updateClothes = (id) => {
-        fetch(`http://localhost:3000/outfits/${id}`)
+        fetch(`http://todayback.herokuapp.com/outfits/${id}`)
             .then(response => response.json())
             .then(newOutfit => this.props.updateUserClothes(newOutfit))
     }

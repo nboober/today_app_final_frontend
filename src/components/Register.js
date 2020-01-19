@@ -50,7 +50,7 @@ class Register extends React.Component{
 
     handleRegisterSubmit = (event) => {
         event.preventDefault()
-        fetch('http://localhost:3000/users',{
+        fetch('https://localhost:3000/users',{
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

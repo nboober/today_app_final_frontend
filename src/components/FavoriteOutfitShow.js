@@ -102,7 +102,7 @@ class FavoriteOutfitShow extends React.Component{
         console.log("favorited")
         let id = "";
 
-        fetch("https://todayback.herokuapp.com/outfits", {
+        fetch("http://localhost:3000/outfits", {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
@@ -116,7 +116,7 @@ class FavoriteOutfitShow extends React.Component{
         .then(data => {console.log(data)
 
             this.state.outfit.map((item)=>{
-                fetch("https://todayback.herokuapp.com/outfit_clothes", {
+                fetch("http://localhost:3000/outfit_clothes", {
                     method: "POST",
                     headers: {
                         "Content-Type":"application/json",
@@ -143,7 +143,7 @@ class FavoriteOutfitShow extends React.Component{
     }
 
     updateClothes = (id) => {
-        fetch(`https://todayback.herokuapp.com/outfits/${id}`)
+        fetch(`http://localhost:3000/outfits/${id}`)
             .then(response => response.json())
             .then(newOutfit => this.props.updateUserClothes(newOutfit))
     }
@@ -151,7 +151,7 @@ class FavoriteOutfitShow extends React.Component{
     delete = () => {
         let id = this.props.id
 
-        fetch(`https://todayback.herokuapp.com/outfits/${id}`,{
+        fetch(`http://localhost:3000/outfits/${id}`,{
             method: 'DELETE'
         }).then(()=>{
             this.props.deleteOutfit(id)
